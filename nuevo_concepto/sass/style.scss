@@ -46,6 +46,9 @@ body{
 .menu-container{
 	background-color: $white;
 	height: 148px;
+	@media only screen and (max-width: 991px){
+		height: 115px;
+	}
 }
 
 .menu-container-children{
@@ -128,6 +131,9 @@ body{
 		@media only screen and (max-width: 991px){
 			flex: 1;
 		}
+	}
+	@media only screen and (max-width: 991px){
+		height: 115px;
 	}
 }
 

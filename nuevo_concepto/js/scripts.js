@@ -13,7 +13,9 @@
 		});
 
 		$("body").on("click",".layer-overlay",function(){
-			$(this).fadeToggle(600);
+			$(this).fadeToggle(600,function(){
+				$(this).remove();
+			});
 			$(".nav-mobile").toggleClass("open");
 			$("body").toggleClass("open");
 		})
