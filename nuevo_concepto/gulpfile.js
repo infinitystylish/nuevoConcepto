@@ -51,7 +51,7 @@ gulp.task('browser-sync', function() {
         browser: ["google chrome"],
         //browser: ["firefox"],
         // browser: ["firefox","google chrome","safari"],
-        proxy: "http://idi.g4adev.net/www/",
+        proxy: "http://localhost:8888/",
         reloadDelay: 3000,
         open: "external",
         ghostMode: {

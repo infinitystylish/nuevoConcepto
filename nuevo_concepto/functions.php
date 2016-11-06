@@ -96,11 +96,15 @@ function nuevoconcepto_conditional_scripts()
 // Load Nuevo concepto styles
 function nuevoconcepto_styles()
 {
-    wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
-    wp_enqueue_style('normalize'); // Enqueue it!
+    wp_register_style('fontastic','https://fonts.googleapis.com/css?family=Poppins:400,500,700', '1.0.0', 'all');
+    wp_enqueue_style('fontastic'); // Enqueue it!
+    
+    wp_register_style('bootstrap','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', '3.7.7', 'all');
+    wp_enqueue_style('bootstrap'); // Enqueue it!
 
-    wp_register_style('nuevoconcepto', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
-    wp_enqueue_style('nuevoconcepto'); // Enqueue it!
+    wp_register_style('css', get_template_directory_uri() . '/stylesheets/style.css', array(), '1.0', 'all');
+    wp_enqueue_style('css'); // Enqueue it!
+
 }
 
 // Remove the <div> surrounding the dynamic navigation to cleanup markup

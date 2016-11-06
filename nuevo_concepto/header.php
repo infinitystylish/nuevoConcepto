@@ -30,21 +30,111 @@
 
 			<!-- header -->
 			<header class="header clear" role="banner">
+				
+				<div class="menu-container">
+					<div class="container">
+						<div class="menu-container-children">
+							<!-- logo -->
+							<div class="logo">
+								<a href="<?php echo home_url(); ?>">
+									<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
+									<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
+								</a>
+							</div>
+							<!-- /logo -->
 
-					<!-- logo -->
-					<div class="logo">
-						<a href="<?php echo home_url(); ?>">
-							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
-						</a>
+							<!-- nav -->
+							<nav class="nav hidden-xs hidden-sm" role="navigation">
+								<ul class="menu-desktop">
+									<li>
+										<a href="#">
+											Inicio
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Galeria
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Video
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Paquetes
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Integrantes
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Repertorio
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Contacto
+										</a>
+									</li>
+								</ul>
+							</nav>
+
+							<div class="menu-hamburguer hidden-md hidden-lg">
+								<div class="line"></div>
+								<div class="line"></div>
+								<div class="line"></div>	
+							</div>
+
+							<nav class="nav-mobile hidden-md hidden-lg" role="navigation">
+
+								<ul class="menu-mobile">
+									<li>
+										<a href="#">
+											Inicio
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Galeria
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Video
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Paquetes
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Integrantes
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Repertorio
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Contacto
+										</a>
+									</li>
+								</ul>
+
+							</nav>
+
+						</div>
 					</div>
-					<!-- /logo -->
-
-					<!-- nav -->
-					<nav class="nav" role="navigation">
-						<?php nuevoconcepto_nav(); ?>
-					</nav>
 					<!-- /nav -->
-
+				</div>
 			</header>
 			<!-- /header -->
