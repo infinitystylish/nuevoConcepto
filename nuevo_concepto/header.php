@@ -24,7 +24,7 @@
 
 	</head>
 	<body <?php body_class(); ?>>
-
+		<div class="layer-overlay"></div>
 		<!-- wrapper -->
 		<div class="wrapper">
 

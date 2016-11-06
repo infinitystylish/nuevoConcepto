@@ -9,13 +9,11 @@
 		$(".menu-hamburguer").on("click",function(){
 			$(".nav-mobile").toggleClass("open");
 			$("body").toggleClass("open");
-			$("body").prepend('<div class="layer-overlay"></div>');
+			$(".layer-overlay").toggleClass("open");
 		});
 
 		$("body").on("click",".layer-overlay",function(){
-			$(this).fadeToggle(600,function(){
-				$(this).remove();
-			});
+			$(".layer-overlay").toggleClass("open");
 			$(".nav-mobile").toggleClass("open");
 			$("body").toggleClass("open");
 		})
