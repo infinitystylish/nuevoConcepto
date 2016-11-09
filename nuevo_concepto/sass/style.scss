@@ -12,6 +12,7 @@ $f14: 14px;  //Menu y texto
 $brown: #776256;
 $brown_op: rgba(119,98,86,0.8);  //rombo
 $brown_op2: rgba(119,98,86,0.7);  //integrantes
+$brown_op3: rgba(119,98,86,0.56); 
 $white: #FFF;
 $purple: #8855a0;
 $purple_op: rgba(136,85,160,0.7);
@@ -26,6 +27,8 @@ a{
 
 body{
 	background-color: black;
+	background-image: url("../img/background-pattern.png");
+	background-repeat: repeat;
 	&.open{
 		overflow: hidden;
 	}
@@ -160,6 +163,127 @@ body{
 	}
 	@media only screen and (max-width: 991px){
 		flex: 1;
+	}
+}
+
+.main-image{
+	height: 730px;
+	width: 100%;
+	background-position: center bottom;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	overflow: hidden;
+	&:after{
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-image: url("../img/pattern-images.png");
+		background-repeat: repeat;
+		width: 100%;
+    	height: 100%;
+    	opacity: 0.43;
+	}
+
+	.rectangle-text-parent{
+		display: flex;
+		&.right{
+			justify-content: flex-end;
+		}
+	}
+
+	.rectangle-text{
+		background-color: $brown_op3;
+		&.one{
+			height: 122px;
+			margin-top: 96px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			padding: 0 80px;
+			h1{
+				margin: 0;
+				font-size: $f48;
+				text-transform: uppercase;
+				color: $white;
+				text-shadow: -3px 3px 3px rgba(0,0,0,0.8);
+
+			}
+		}
+		&.two{
+			height: 90px;
+			margin-top: 182px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			padding: 0 80px;
+			h2{
+				margin: 0;
+				font-size: $f36;
+				text-transform: uppercase;
+				color: $white;
+				text-shadow: -3px 3px 3px rgba(0,0,0,0.8);
+			}
+		}
+		&.three{
+			height: 90px;
+			margin-top: 100px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			padding: 0 80px;
+			h3{
+				margin: 0;
+				font-size: $f36;
+				text-transform: uppercase;
+				color: $white;
+				text-shadow: -3px 3px 3px rgba(0,0,0,0.8);
+			}
+		}
+	}
+
+	@media (max-width: 991px){
+		.rectangle-text{
+			&.one{
+				h1{
+					font-size: $f36;
+				}
+				
+			}
+			&.two{
+				h2{
+					font-size: $f30;
+				}
+				
+			}
+			&.three{
+				h3{
+					font-size: $f30;
+				}
+				
+			}
+		}
+	}
+
+	@media (max-width: 767px){
+		height: 300px;
+		.rectangle-text-parent{
+			&:not(:first-child){
+				display: none;
+			}
+		}
+		.rectangle-text{
+			&.one{
+				height: 60px;
+				padding: 0 15px;
+				margin-top: 40px;
+				h1{
+					font-size: $f24;
+				}
+				
+			}
+		}
 	}
 }
 

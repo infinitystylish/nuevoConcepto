@@ -13,9 +13,13 @@
 		});
 
 		$("body").on("click",".layer-overlay",function(){
-			$(".layer-overlay").toggleClass("open");
-			$(".nav-mobile").toggleClass("open");
-			$("body").toggleClass("open");
+			if($(".layer-overlay").hasClass("open")){
+				console.log("hola");
+				$(".layer-overlay").toggleClass("open");
+				$(".nav-mobile").toggleClass("open");
+				$("body").toggleClass("open");
+			}
+			
 		})
 		
 	});
