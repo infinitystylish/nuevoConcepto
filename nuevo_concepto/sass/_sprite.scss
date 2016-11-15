@@ -1,0 +1,415 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$arrow-left-name: 'arrowLeft';
+$arrow-left-x: 174px;
+$arrow-left-y: 152px;
+$arrow-left-offset-x: -174px;
+$arrow-left-offset-y: -152px;
+$arrow-left-width: 40px;
+$arrow-left-height: 40px;
+$arrow-left-total-width: 303px;
+$arrow-left-total-height: 262px;
+$arrow-left-image: '../img/sprite.png';
+$arrow-left: (174px, 152px, -174px, -152px, 40px, 40px, 303px, 262px, '../img/sprite.png', 'arrowLeft', );
+$arrow-left-brown-name: 'arrowLeftBrown';
+$arrow-left-brown-x: 54px;
+$arrow-left-brown-y: 152px;
+$arrow-left-brown-offset-x: -54px;
+$arrow-left-brown-offset-y: -152px;
+$arrow-left-brown-width: 40px;
+$arrow-left-brown-height: 40px;
+$arrow-left-brown-total-width: 303px;
+$arrow-left-brown-total-height: 262px;
+$arrow-left-brown-image: '../img/sprite.png';
+$arrow-left-brown: (54px, 152px, -54px, -152px, 40px, 40px, 303px, 262px, '../img/sprite.png', 'arrowLeftBrown', );
+$arrow-left-brown-big-name: 'arrowLeftBrownBig';
+$arrow-left-brown-big-x: 213px;
+$arrow-left-brown-big-y: 90px;
+$arrow-left-brown-big-offset-x: -213px;
+$arrow-left-brown-big-offset-y: -90px;
+$arrow-left-brown-big-width: 54px;
+$arrow-left-brown-big-height: 54px;
+$arrow-left-brown-big-total-width: 303px;
+$arrow-left-brown-big-total-height: 262px;
+$arrow-left-brown-big-image: '../img/sprite.png';
+$arrow-left-brown-big: (213px, 90px, -213px, -90px, 54px, 54px, 303px, 262px, '../img/sprite.png', 'arrowLeftBrownBig', );
+$arrow-right-name: 'arrowRight';
+$arrow-right-x: 94px;
+$arrow-right-y: 152px;
+$arrow-right-offset-x: -94px;
+$arrow-right-offset-y: -152px;
+$arrow-right-width: 40px;
+$arrow-right-height: 40px;
+$arrow-right-total-width: 303px;
+$arrow-right-total-height: 262px;
+$arrow-right-image: '../img/sprite.png';
+$arrow-right: (94px, 152px, -94px, -152px, 40px, 40px, 303px, 262px, '../img/sprite.png', 'arrowRight', );
+$arrow-right-brown-name: 'arrowRightBrown';
+$arrow-right-brown-x: 134px;
+$arrow-right-brown-y: 152px;
+$arrow-right-brown-offset-x: -134px;
+$arrow-right-brown-offset-y: -152px;
+$arrow-right-brown-width: 40px;
+$arrow-right-brown-height: 40px;
+$arrow-right-brown-total-width: 303px;
+$arrow-right-brown-total-height: 262px;
+$arrow-right-brown-image: '../img/sprite.png';
+$arrow-right-brown: (134px, 152px, -134px, -152px, 40px, 40px, 303px, 262px, '../img/sprite.png', 'arrowRightBrown', );
+$arrow-right-brown-big-name: 'arrowRightBrownBig';
+$arrow-right-brown-big-x: 0px;
+$arrow-right-brown-big-y: 152px;
+$arrow-right-brown-big-offset-x: 0px;
+$arrow-right-brown-big-offset-y: -152px;
+$arrow-right-brown-big-width: 54px;
+$arrow-right-brown-big-height: 54px;
+$arrow-right-brown-big-total-width: 303px;
+$arrow-right-brown-big-total-height: 262px;
+$arrow-right-brown-big-image: '../img/sprite.png';
+$arrow-right-brown-big: (0px, 152px, 0px, -152px, 54px, 54px, 303px, 262px, '../img/sprite.png', 'arrowRightBrownBig', );
+$facebook-name: 'facebook';
+$facebook-x: 213px;
+$facebook-y: 0px;
+$facebook-offset-x: -213px;
+$facebook-offset-y: 0px;
+$facebook-width: 90px;
+$facebook-height: 90px;
+$facebook-total-width: 303px;
+$facebook-total-height: 262px;
+$facebook-image: '../img/sprite.png';
+$facebook: (213px, 0px, -213px, 0px, 90px, 90px, 303px, 262px, '../img/sprite.png', 'facebook', );
+$mail-name: 'mail';
+$mail-x: 112px;
+$mail-y: 119px;
+$mail-offset-x: -112px;
+$mail-offset-y: -119px;
+$mail-width: 40px;
+$mail-height: 29px;
+$mail-total-width: 303px;
+$mail-total-height: 262px;
+$mail-image: '../img/sprite.png';
+$mail: (112px, 119px, -112px, -119px, 40px, 29px, 303px, 262px, '../img/sprite.png', 'mail', );
+$micro-name: 'micro';
+$micro-x: 0px;
+$micro-y: 206px;
+$micro-offset-x: 0px;
+$micro-offset-y: -206px;
+$micro-width: 30px;
+$micro-height: 56px;
+$micro-total-width: 303px;
+$micro-total-height: 262px;
+$micro-image: '../img/sprite.png';
+$micro: (0px, 206px, 0px, -206px, 30px, 56px, 303px, 262px, '../img/sprite.png', 'micro', );
+$music-name: 'music';
+$music-x: 112px;
+$music-y: 0px;
+$music-offset-x: -112px;
+$music-offset-y: 0px;
+$music-width: 101px;
+$music-height: 119px;
+$music-total-width: 303px;
+$music-total-height: 262px;
+$music-image: '../img/sprite.png';
+$music: (112px, 0px, -112px, 0px, 101px, 119px, 303px, 262px, '../img/sprite.png', 'music', );
+$musics-name: 'musics';
+$musics-x: 0px;
+$musics-y: 0px;
+$musics-offset-x: 0px;
+$musics-offset-y: 0px;
+$musics-width: 112px;
+$musics-height: 152px;
+$musics-total-width: 303px;
+$musics-total-height: 262px;
+$musics-image: '../img/sprite.png';
+$musics: (0px, 0px, 0px, 0px, 112px, 152px, 303px, 262px, '../img/sprite.png', 'musics', );
+$phone-name: 'phone';
+$phone-x: 214px;
+$phone-y: 152px;
+$phone-offset-x: -214px;
+$phone-offset-y: -152px;
+$phone-width: 40px;
+$phone-height: 40px;
+$phone-total-width: 303px;
+$phone-total-height: 262px;
+$phone-image: '../img/sprite.png';
+$phone: (214px, 152px, -214px, -152px, 40px, 40px, 303px, 262px, '../img/sprite.png', 'phone', );
+$arrow-left-2x-name: 'arrowLeft-2x';
+$arrow-left-2x-x: 348px;
+$arrow-left-2x-y: 304px;
+$arrow-left-2x-offset-x: -348px;
+$arrow-left-2x-offset-y: -304px;
+$arrow-left-2x-width: 80px;
+$arrow-left-2x-height: 80px;
+$arrow-left-2x-total-width: 606px;
+$arrow-left-2x-total-height: 524px;
+$arrow-left-2x-image: '../img/sprite-2x.png';
+$arrow-left-2x: (348px, 304px, -348px, -304px, 80px, 80px, 606px, 524px, '../img/sprite-2x.png', 'arrowLeft-2x', );
+$arrow-left-brown-2x-name: 'arrowLeftBrown-2x';
+$arrow-left-brown-2x-x: 108px;
+$arrow-left-brown-2x-y: 304px;
+$arrow-left-brown-2x-offset-x: -108px;
+$arrow-left-brown-2x-offset-y: -304px;
+$arrow-left-brown-2x-width: 80px;
+$arrow-left-brown-2x-height: 80px;
+$arrow-left-brown-2x-total-width: 606px;
+$arrow-left-brown-2x-total-height: 524px;
+$arrow-left-brown-2x-image: '../img/sprite-2x.png';
+$arrow-left-brown-2x: (108px, 304px, -108px, -304px, 80px, 80px, 606px, 524px, '../img/sprite-2x.png', 'arrowLeftBrown-2x', );
+$arrow-left-brown-big-2x-name: 'arrowLeftBrownBig-2x';
+$arrow-left-brown-big-2x-x: 426px;
+$arrow-left-brown-big-2x-y: 180px;
+$arrow-left-brown-big-2x-offset-x: -426px;
+$arrow-left-brown-big-2x-offset-y: -180px;
+$arrow-left-brown-big-2x-width: 108px;
+$arrow-left-brown-big-2x-height: 108px;
+$arrow-left-brown-big-2x-total-width: 606px;
+$arrow-left-brown-big-2x-total-height: 524px;
+$arrow-left-brown-big-2x-image: '../img/sprite-2x.png';
+$arrow-left-brown-big-2x: (426px, 180px, -426px, -180px, 108px, 108px, 606px, 524px, '../img/sprite-2x.png', 'arrowLeftBrownBig-2x', );
+$arrow-right-2x-name: 'arrowRight-2x';
+$arrow-right-2x-x: 188px;
+$arrow-right-2x-y: 304px;
+$arrow-right-2x-offset-x: -188px;
+$arrow-right-2x-offset-y: -304px;
+$arrow-right-2x-width: 80px;
+$arrow-right-2x-height: 80px;
+$arrow-right-2x-total-width: 606px;
+$arrow-right-2x-total-height: 524px;
+$arrow-right-2x-image: '../img/sprite-2x.png';
+$arrow-right-2x: (188px, 304px, -188px, -304px, 80px, 80px, 606px, 524px, '../img/sprite-2x.png', 'arrowRight-2x', );
+$arrow-right-brown-2x-name: 'arrowRightBrown-2x';
+$arrow-right-brown-2x-x: 268px;
+$arrow-right-brown-2x-y: 304px;
+$arrow-right-brown-2x-offset-x: -268px;
+$arrow-right-brown-2x-offset-y: -304px;
+$arrow-right-brown-2x-width: 80px;
+$arrow-right-brown-2x-height: 80px;
+$arrow-right-brown-2x-total-width: 606px;
+$arrow-right-brown-2x-total-height: 524px;
+$arrow-right-brown-2x-image: '../img/sprite-2x.png';
+$arrow-right-brown-2x: (268px, 304px, -268px, -304px, 80px, 80px, 606px, 524px, '../img/sprite-2x.png', 'arrowRightBrown-2x', );
+$arrow-right-brown-big-2x-name: 'arrowRightBrownBig-2x';
+$arrow-right-brown-big-2x-x: 0px;
+$arrow-right-brown-big-2x-y: 304px;
+$arrow-right-brown-big-2x-offset-x: 0px;
+$arrow-right-brown-big-2x-offset-y: -304px;
+$arrow-right-brown-big-2x-width: 108px;
+$arrow-right-brown-big-2x-height: 108px;
+$arrow-right-brown-big-2x-total-width: 606px;
+$arrow-right-brown-big-2x-total-height: 524px;
+$arrow-right-brown-big-2x-image: '../img/sprite-2x.png';
+$arrow-right-brown-big-2x: (0px, 304px, 0px, -304px, 108px, 108px, 606px, 524px, '../img/sprite-2x.png', 'arrowRightBrownBig-2x', );
+$facebook-2x-name: 'facebook-2x';
+$facebook-2x-x: 426px;
+$facebook-2x-y: 0px;
+$facebook-2x-offset-x: -426px;
+$facebook-2x-offset-y: 0px;
+$facebook-2x-width: 180px;
+$facebook-2x-height: 180px;
+$facebook-2x-total-width: 606px;
+$facebook-2x-total-height: 524px;
+$facebook-2x-image: '../img/sprite-2x.png';
+$facebook-2x: (426px, 0px, -426px, 0px, 180px, 180px, 606px, 524px, '../img/sprite-2x.png', 'facebook-2x', );
+$mail-2x-name: 'mail-2x';
+$mail-2x-x: 224px;
+$mail-2x-y: 238px;
+$mail-2x-offset-x: -224px;
+$mail-2x-offset-y: -238px;
+$mail-2x-width: 80px;
+$mail-2x-height: 58px;
+$mail-2x-total-width: 606px;
+$mail-2x-total-height: 524px;
+$mail-2x-image: '../img/sprite-2x.png';
+$mail-2x: (224px, 238px, -224px, -238px, 80px, 58px, 606px, 524px, '../img/sprite-2x.png', 'mail-2x', );
+$micro-2x-name: 'micro-2x';
+$micro-2x-x: 0px;
+$micro-2x-y: 412px;
+$micro-2x-offset-x: 0px;
+$micro-2x-offset-y: -412px;
+$micro-2x-width: 60px;
+$micro-2x-height: 112px;
+$micro-2x-total-width: 606px;
+$micro-2x-total-height: 524px;
+$micro-2x-image: '../img/sprite-2x.png';
+$micro-2x: (0px, 412px, 0px, -412px, 60px, 112px, 606px, 524px, '../img/sprite-2x.png', 'micro-2x', );
+$music-2x-name: 'music-2x';
+$music-2x-x: 224px;
+$music-2x-y: 0px;
+$music-2x-offset-x: -224px;
+$music-2x-offset-y: 0px;
+$music-2x-width: 202px;
+$music-2x-height: 238px;
+$music-2x-total-width: 606px;
+$music-2x-total-height: 524px;
+$music-2x-image: '../img/sprite-2x.png';
+$music-2x: (224px, 0px, -224px, 0px, 202px, 238px, 606px, 524px, '../img/sprite-2x.png', 'music-2x', );
+$musics-2x-name: 'musics-2x';
+$musics-2x-x: 0px;
+$musics-2x-y: 0px;
+$musics-2x-offset-x: 0px;
+$musics-2x-offset-y: 0px;
+$musics-2x-width: 224px;
+$musics-2x-height: 304px;
+$musics-2x-total-width: 606px;
+$musics-2x-total-height: 524px;
+$musics-2x-image: '../img/sprite-2x.png';
+$musics-2x: (0px, 0px, 0px, 0px, 224px, 304px, 606px, 524px, '../img/sprite-2x.png', 'musics-2x', );
+$phone-2x-name: 'phone-2x';
+$phone-2x-x: 428px;
+$phone-2x-y: 304px;
+$phone-2x-offset-x: -428px;
+$phone-2x-offset-y: -304px;
+$phone-2x-width: 80px;
+$phone-2x-height: 80px;
+$phone-2x-total-width: 606px;
+$phone-2x-total-height: 524px;
+$phone-2x-image: '../img/sprite-2x.png';
+$phone-2x: (428px, 304px, -428px, -304px, 80px, 80px, 606px, 524px, '../img/sprite-2x.png', 'phone-2x', );
+$spritesheet-width: 303px;
+$spritesheet-height: 262px;
+$spritesheet-image: '../img/sprite.png';
+$spritesheet-sprites: ($arrow-left, $arrow-left-brown, $arrow-left-brown-big, $arrow-right, $arrow-right-brown, $arrow-right-brown-big, $facebook, $mail, $micro, $music, $musics, $phone, );
+$spritesheet: (303px, 262px, '../img/sprite.png', $spritesheet-sprites, );
+$retina-spritesheet-width: 606px;
+$retina-spritesheet-height: 524px;
+$retina-spritesheet-image: '../img/sprite-2x.png';
+$retina-spritesheet-sprites: ($arrow-left-2x, $arrow-left-brown-2x, $arrow-left-brown-big-2x, $arrow-right-2x, $arrow-right-brown-2x, $arrow-right-brown-big-2x, $facebook-2x, $mail-2x, $micro-2x, $music-2x, $musics-2x, $phone-2x, );
+$retina-spritesheet: (606px, 524px, '../img/sprite-2x.png', $retina-spritesheet-sprites, );
+
+/*
+These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+
+The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
+*/
+$arrow-left-group-name: 'arrowLeft';
+$arrow-left-group: ('arrowLeft', $arrow-left, $arrow-left-2x, );
+$arrow-left-brown-group-name: 'arrowLeftBrown';
+$arrow-left-brown-group: ('arrowLeftBrown', $arrow-left-brown, $arrow-left-brown-2x, );
+$arrow-left-brown-big-group-name: 'arrowLeftBrownBig';
+$arrow-left-brown-big-group: ('arrowLeftBrownBig', $arrow-left-brown-big, $arrow-left-brown-big-2x, );
+$arrow-right-group-name: 'arrowRight';
+$arrow-right-group: ('arrowRight', $arrow-right, $arrow-right-2x, );
+$arrow-right-brown-group-name: 'arrowRightBrown';
+$arrow-right-brown-group: ('arrowRightBrown', $arrow-right-brown, $arrow-right-brown-2x, );
+$arrow-right-brown-big-group-name: 'arrowRightBrownBig';
+$arrow-right-brown-big-group: ('arrowRightBrownBig', $arrow-right-brown-big, $arrow-right-brown-big-2x, );
+$facebook-group-name: 'facebook';
+$facebook-group: ('facebook', $facebook, $facebook-2x, );
+$mail-group-name: 'mail';
+$mail-group: ('mail', $mail, $mail-2x, );
+$micro-group-name: 'micro';
+$micro-group: ('micro', $micro, $micro-2x, );
+$music-group-name: 'music';
+$music-group: ('music', $music, $music-2x, );
+$musics-group-name: 'musics';
+$musics-group: ('musics', $musics, $musics-2x, );
+$phone-group-name: 'phone';
+$phone-group: ('phone', $phone, $phone-2x, );
+$retina-groups: ($arrow-left-group, $arrow-left-brown-group, $arrow-left-brown-big-group, $arrow-right-group, $arrow-right-brown-group, $arrow-right-brown-big-group, $facebook-group, $mail-group, $micro-group, $music-group, $musics-group, $phone-group, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
+  It should be used with a "retina group" variable.
+
+The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+
+$icon-home-group: ('icon-home', $icon-home, $icon-home-2x, );
+
+.icon-home {
+  @include retina-sprite($icon-home-group);
+}
+*/
+@mixin sprite-background-size($sprite) {
+  $sprite-total-width: nth($sprite, 7);
+  $sprite-total-height: nth($sprite, 8);
+  background-size: $sprite-total-width $sprite-total-height;
+}
+
+@mixin retina-sprite($retina-group) {
+  $normal-sprite: nth($retina-group, 2);
+  $retina-sprite: nth($retina-group, 3);
+  @include sprite($normal-sprite);
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
+  }
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
+
+/*
+The `retina-sprites` mixin generates a CSS rule and media query for retina groups
+  This yields the same output as CSS retina template but can be overridden in SCSS
+
+@include retina-sprites($retina-groups);
+*/
+@mixin retina-sprites($retina-groups) {
+  @each $retina-group in $retina-groups {
+    $sprite-name: nth($retina-group, 1);
+    .#{$sprite-name} {
+      @include retina-sprite($retina-group);
+    }
+  }
+}

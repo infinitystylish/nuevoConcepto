@@ -19,8 +19,9 @@
 				$(".nav-mobile").toggleClass("open");
 				$("body").toggleClass("open");
 			}
-			
 		})
+
+		$(".package-slider").slick();
 		
 	});
 	
