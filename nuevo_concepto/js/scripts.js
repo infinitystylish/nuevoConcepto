@@ -22,6 +22,56 @@
 		})
 
 		$(".package-slider").slick();
+
+		$(".musical-equipment-slider-container").slick({
+			slidesToShow: 3,
+  			slidesToScroll: 3,
+  			arrows: true,
+  			infinite: true,
+		  	responsive: [
+			    {
+			      breakpoint: 1140,
+			      settings: {
+			        slidesToShow: 2,
+			        slidesToScroll: 2,
+			        infinite: true,
+			        dots: true
+			      }
+			    },
+			    {
+			      breakpoint: 584,
+			      settings: {
+			        slidesToShow: 1,
+			        slidesToScroll: 1
+			      }
+			    },
+			  ]
+		});
+
+		$(".members-container-slider").slick({
+			slidesToShow: 3,
+  			slidesToScroll: 3,
+  			arrows: true,
+  			infinite: true,
+		  	responsive: [
+			    {
+			      breakpoint: 1140,
+			      settings: {
+			        slidesToShow: 2,
+			        slidesToScroll: 2,
+			        infinite: true,
+			        dots: true
+			      }
+			    },
+			    {
+			      breakpoint: 767,
+			      settings: {
+			        slidesToShow: 1,
+			        slidesToScroll: 1
+			      }
+			    },
+			  ]
+		});
 		
 	});
 	

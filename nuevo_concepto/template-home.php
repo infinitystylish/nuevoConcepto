@@ -17,6 +17,19 @@
 			</div>
 		</div>
 	</section>
+	
+	<section class="video">
+		<div class="title-section">
+			<div class="horizontal-line"></div>
+			<h3>Video</h3>
+			<h4>Video de nuestro show</h4>
+		</div>	
+		<div class="video-play-container">
+			<div class="video-play">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/i8q8fFs3kTM" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
 
 	<section class="packages">
 		<div class="title-section">
@@ -126,6 +139,126 @@
 				</div>
 			</div>
 		</div>
+	</section>
+
+	<section class="musical-equipment">
+		<div class="musical-equipment-slider">
+			<div class="square-title-container">
+				<div class="icon-musics"></div>
+				<h3>
+					Equipo
+				</h3>
+			</div>
+			<div class="musical-equipment-slider-container">
+				<div>
+					<img src="<?php echo get_template_directory_uri(); ?>/img/guitar.jpg"  width="292" height="262" alt="">
+				</div>
+				<div>
+					<img src="<?php echo get_template_directory_uri(); ?>/img/piano.jpg" width="292" height="262"  alt="">
+				</div>
+				<div>
+					<img src="<?php echo get_template_directory_uri(); ?>/img/battery.jpg" width="292" height="262"  alt="">
+				</div>
+				<div>
+					<img src="<?php echo get_template_directory_uri(); ?>/img/piano.jpg" width="292" height="262"  alt="">
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<section class="members">
+		<div class="title-section">
+			<div class="horizontal-line"></div>
+			<h3>Integrantes</h3>
+			<h4>Nuestro grupo de talentos</h4>
+		</div>
+		<div class="members-container">
+			<div class="members-container-slider">
+				<div class="member-container">
+					<div class="member">
+						<div class="presentation-member">
+							<h4>Adam Levine</h4>
+							<div class="ocupation">
+								Cantante
+							</div>
+							<div class="studies">
+								Conservatorio de las rosas
+							</div>
+							<div class="experience">
+								11 años de experiencia
+							</div>
+						</div>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/adam_levine.jpg" alt="">
+					</div>
+				</div>
+				<div class="member-container">
+					<div class="member">
+						<div class="presentation-member">
+							<h4>Adam Levine</h4>
+							<div class="ocupation">
+								Cantante
+							</div>
+							<div class="studies">
+								Conservatorio de las rosas
+							</div>
+							<div class="experience">
+								11 años de experiencia
+							</div>
+						</div>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/adam_levine.jpg" alt="">
+					</div>
+				</div>
+				<div class="member-container">
+					<div class="member">
+						<div class="presentation-member">
+							<h4>Adam Levine</h4>
+							<div class="ocupation">
+								Cantante
+							</div>
+							<div class="studies">
+								Conservatorio de las rosas
+							</div>
+							<div class="experience">
+								11 años de experiencia
+							</div>
+						</div>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/adam_levine.jpg" alt="">
+					</div>
+				</div>
+				<div class="member-container">
+					<div class="member">
+						<div class="presentation-member">
+							<h4>Adam Levine</h4>
+							<div class="ocupation">
+								Cantante
+							</div>
+							<div class="studies">
+								Conservatorio de las rosas
+							</div>
+							<div class="experience">
+								11 años de experiencia
+							</div>
+						</div>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/adam_levine.jpg" alt="">
+					</div>
+				</div>
+			</div>
+		</div>	
+	</section>
+
+	<section class="repertory">
+		<div class="title-section">
+			<div class="horizontal-line"></div>
+			<h3>Repertorio</h3>
+			<h4>Nuestras interpretaciones</h4>
+		</div>
+		<a href="#" class="button-repertory">
+			<div class="icon-repertory"></div>
+			<div class="name-repertory">
+				Ver repertorio
+			</div>
+		</a>
 	</section>
 
 <?php get_footer(); ?>

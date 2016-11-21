@@ -52,6 +52,34 @@ $black_op: rgba(0,0,0,.8);
 		margin: 15px 0 0px;
 		line-height: 1;
 	}
+
+	@media only screen and (max-width: 991px){
+		margin-top: 50px;
+		margin-bottom: 40px;
+		h3{
+			font-size: 45px;
+		}
+		h4{
+			font-size: 22px;
+		}
+
+	}
+	@media only screen and (max-width: 640px){
+		margin-top: 40px;
+		margin-bottom: 30px;
+		.horizontal-line{
+			height: 4px;
+		}
+		h3{
+			font-size: 30px;
+			margin: 10px 0 0;
+		}
+		h4{
+			font-size: 14px;
+			margin: 10px 0 0;
+			text-align: center;
+		}
+	}
 }
 
 /* Componentes */
@@ -67,6 +95,7 @@ body{
 	background-color: black;
 	background-image: url("../img/background-pattern.png");
 	background-repeat: repeat;
+	overflow-x: hidden;
 	&.open{
 		overflow: hidden;
 	}
@@ -334,26 +363,38 @@ body{
 	position: relative;
 	height: 960px;
 	overflow: hidden;
+	@media (max-width: 991px){
+		height: auto;
+	}
 }
 
 .package-slider{
-	width: 960px;
+	max-width: 960px;
 	margin: 0 auto;
 }
 
 .rhombus{
 	background-color: $brown_op;
 	transform: rotate(45deg);
-	height: 680px;
+	min-height: 680px;
     width: 680px;
     margin: 140px auto;
     transform-origin: 50% 50%;
     position: relative;
+    @media (max-width: 991px){
+    	transform: rotate(0deg);
+    	width: 80%;
+    	margin: 40px auto;
+    }
+    @media (max-width: 640px){
+		width: 100%;
+		margin: 0 auto;
+    }
 }
 
 .package-content{
 	transform: rotate(-45deg);
-	width: 440px;
+	max-width: 440px;
 	position: absolute;
     left: 5%;
     top: 30px;
@@ -389,5 +430,234 @@ body{
 		@include sprite($music);
 		margin: 40px auto;
 	}
+
+	@media (max-width: 991px){
+	 	transform: rotate(0deg);
+		.icon-music{
+	 	    margin: 15px auto 0;
+	 	}
+	}
+	@media (max-width: 767px){
+		padding: 30px 50px;
+		position: relative;
+		left: 0;
+    	top: 0;
+	}
+	 @media (max-width: 640px){
+	 	h5{
+	 		font-size: 20px;
+	 	}
+	 	ul{
+	 		li{
+	 			font-size: 13px;
+	 			line-height: 1.2;
+	 		}
+	 	}
+	 }
+	    
 }
+
+/* Video */
+
+.video-play-container{
+	max-width: 855px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.video-play {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+	text-align: center;
+	iframe{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+/* Musical Equipment */
+
+
+.musical-equipment{
+	margin-top: 110px;
+}
+
+.musical-equipment-slider{
+	max-width: 1160px;
+	margin: 0 auto;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	@media (max-width: 991px){
+		flex-direction: column;
+	}
+}
+
+.square-title-container{
+	height: 262px;
+	background-color: $purple;
+	width: 265px;
+	float: left;
+	.icon-musics{
+		@include sprite($musics);
+		margin: 20px auto;
+	}
+	h3{
+		font-size: $f48;
+		color: $white;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	@media (max-width: 991px){
+		width: 584px;
+		margin: 0 auto;
+		float: none;
+	}
+	@media (max-width: 767px){
+		h3{
+			font-size: $f30;
+		}
+	}
+	@media (max-width: 584px){
+		width: 292px;
+	}
+}
+
+.musical-equipment-slider-container{
+	float: left;
+	max-width: 876px;
+	>div{
+		img{
+			max-width: 100%;
+			height: auto;
+		}
+		
+	}	
+	@media (max-width: 1140px){
+		width: 584px;
+	}	
+	@media (max-width: 991px){
+		float: none;
+		margin: 0px auto;
+	}
+	@media (max-width: 584px){
+		width: 292px;
+	}
+	    
+}
+
+/* Members Container */
+
+.members-container{
+	background-image: url("../img/music-signs.png");
+	height: 523px;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+	@media (max-width: 767px){
+		height: auto;
+	}
+}
+
+
+.members-container-slider{
+	position: relative;
+	max-width: 1140px;
+	width: 100%;
+	margin: 85px auto;
+	.member-container{
+		margin-right: 5px;
+		margin-left: 5px;
+	}
+	.member{
+		max-width: 360px;
+		height: 352px;
+		overflow: hidden;
+		position: relative;
+		margin: 0 auto;
+		&:hover{
+			cursor: pointer;
+			.presentation-member{
+				bottom: 0;
+			}
+		}
+	}
+	.presentation-member{
+		background-color: $brown_op2;
+		color: $white;
+		position: absolute;
+		bottom: -130px;
+		width: 100%;
+		padding: 20px;
+		text-align: center;
+		transition: all 0.5s ease-in;
+		h4,.member{
+			text-transform: uppercase;
+
+		}
+		h4{
+			font-size: $f30;
+			margin: 0 0 18px;
+		}
+		>div{
+			font-size: $f18;
+			margin: 0 0 12px;
+			&:last-child{
+				margin: 0 0 5px;
+			}
+		}
+	}
+	@media (max-width: 767px){
+		margin: 35px auto;
+	}
+}
+
+/* Repertory */
+
+.repertory{
+	margin-bottom: 95px;
+}
+
+.button-repertory{
+	display: block;
+	max-width: 520px;
+	margin: 0 auto;
+	background-color: $purple;
+	height: 102px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.icon-repertory{
+		margin-right: 40px;
+		@include sprite($micro);
+	}
+	.name-repertory{
+		color: $white;
+		text-transform: uppercase;
+		font-size: $f36;
+		text-align: center;
+	}
+
+	@media (max-width: 640px){
+		max-width: 300px;
+		.name-repertory{
+			font-size: 20px;
+		}
+		.icon-repertory{
+			margin-right: 15px;
+		}
+	}
+}
+
+
+
+
+
 

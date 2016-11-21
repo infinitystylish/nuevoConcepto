@@ -115,6 +115,9 @@ $slick-opacity-not-active: 0.25 !default;
     @include sprite($arrow-left);
     left: 15%;
     z-index: 2;
+     @media (max-width: 767px){
+        left: 2%;
+    }
 }
 
 .slick-next {
@@ -132,6 +135,38 @@ $slick-opacity-not-active: 0.25 !default;
      @include sprite($arrow-right);
     right: 15%;
     z-index: 2;
+    @media (max-width: 767px){
+        right: 2%;
+    }
+}
+
+.musical-equipment-slider-container{
+    .slick-prev {
+        @include sprite($arrow-left-brown);
+        left: 15px;
+    }
+    .slick-next {
+        @include sprite($arrow-right-brown);
+        right: 15px;
+    }
+}
+
+.members-container-slider{
+    .slick-prev {
+        @include sprite($arrow-left-brown-big);
+        left: -60px;
+        @media (max-width: 1199px){
+            left: 20px;
+        }
+    }
+    .slick-next {
+        @include sprite($arrow-right-brown-big);
+        right: -60px;
+        @media (max-width: 1199px){
+            right: 20px;
+        }
+    }
+
 }
 
 /* Dots */
