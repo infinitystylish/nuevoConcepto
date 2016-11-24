@@ -17,7 +17,117 @@
 			</div>
 		</div>
 	</section>
+
+	 <div class="ninja-slider-container">
+        <div id="ninja-slider">
+            <div class="slider-inner">
+                <ul>
+                    <li>
+                        <a class="ns-img" href="<?php echo get_template_directory_uri(); ?>/img/NC1.jpg"></a>
+                        <div class="caption">
+                            <h3>Dummy Caption 1</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus accumsan purus.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="ns-img" href="<?php echo get_template_directory_uri(); ?>/img/NC36_1.jpg"></a>
+                        <div class="caption">
+                            <h3>Dummy Caption 2</h3>
+                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/"><img class="ns-img" src="<?php echo get_template_directory_uri(); ?>/img/NC48_1.jpg" /></a>
+                        <div class="caption">
+                            <h3>Dummy Caption 3</h3>
+                            <p>Duis fringilla arcu convallis urna commodo, et tempus velit posuere.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="ns-img" href="<?php echo get_template_directory_uri(); ?>/img/NC51_1.jpg""></a>
+                        <div class="caption">
+                            <h3>Dummy Caption 4</h3>
+                            <p>Proin non dui at metus suscipit bibendum.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="ns-img" href="<?php echo get_template_directory_uri(); ?>/img/NC105.jpg""></a>
+                        <div class="caption">
+                            <h3>Dummy Caption 5</h3>
+                            <p>Proin non dui at metus suscipit bibendum.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="ns-img" href="<?php echo get_template_directory_uri(); ?>/img/NC112.jpg""></a>
+                        <div class="caption">
+                            <h3>Dummy Caption 6</h3>
+                            <p>Proin non dui at metus suscipit bibendum.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="ns-img" href="<?php echo get_template_directory_uri(); ?>/img/NC122.jpg""></a>
+                        <div class="caption">
+                            <h3>Dummy Caption 7</h3>
+                            <p>Proin non dui at metus suscipit bibendum.</p>
+                        </div>
+                    </li>
+                </ul>
+                <div id="fsBtn" class="fs-icon" title="Expand/Close"></div>
+            </div>
+        </div>
+    </div>
 	
+	<section class="gallery">
+		<div class="title-section">
+			<div class="horizontal-line"></div>
+			<h3>Galería</h3>
+			<h4>Fotos de nuestro show</h4>
+		</div>
+
+		<div class="gallery-section-container">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4 col-sm-push-1">
+						<div class="gallery-image">
+							<div class="hover-gallery-image" onclick="lightbox(0)">
+								Mostrar galería
+							</div>
+							<img src="<?php echo get_template_directory_uri(); ?>/img/gallery1.jpg" width="360" height="430" alt="">
+						</div>
+					</div>
+					<div class="col-sm-3 col-sm-push-1">
+						<div class="gallery-image">
+							<div class="hover-gallery-image" onclick="lightbox(1)">
+								Mostrar galería
+							</div>
+							<img src="<?php echo get_template_directory_uri(); ?>/img/gallery2.jpg" width="262" height="200" alt="">
+						</div>
+						<div class="gallery-image">
+							<div class="hover-gallery-image" onclick="lightbox(2)">
+								Mostrar galería
+							</div>
+							<img src="<?php echo get_template_directory_uri(); ?>/img/gallery2.jpg" width="262" height="200" alt="">
+						</div>
+					</div>
+					<div class="col-sm-3 col-sm-push-1">
+						<div class="gallery-image">
+							<div class="hover-gallery-image" onclick="lightbox(3)">
+								Mostrar galería
+							</div>
+							<img src="<?php echo get_template_directory_uri(); ?>/img/gallery2.jpg" width="262" height="200" alt="">
+						</div>
+						<div class="gallery-image">
+							<div class="hover-gallery-image" onclick="lightbox(4)">
+								Mostrar galería
+							</div>
+							<img src="<?php echo get_template_directory_uri(); ?>/img/gallery2.jpg" width="262" height="200" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section class="video">
 		<div class="title-section">
 			<div class="horizontal-line"></div>
@@ -259,6 +369,63 @@
 				Ver repertorio
 			</div>
 		</a>
+	</section>
+
+	<section class="contact">
+		<div class="contact-container">
+			<div class="title-section contact">
+				<div class="horizontal-line"></div>
+				<h3>Contacto</h3>
+			</div>
+			<div class="container">
+				<div class="col-sm-12 col-sm-push-0 col-md-10 col-md-push-1">
+					<div class="contact-form">
+						<form action="#">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="input-container">
+										<label for="name">Nombre</label>
+										<input type="text" />
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="input-container">
+										<label for="name">Email</label>
+										<input type="mail" />
+									</div>
+								</div>
+							</div>
+							<div class="input-container">
+								<label for="name">Mensaje</label>
+								<textarea name="" id="" cols="30" rows="10"></textarea>
+							</div>
+							<button>
+								Mandar mensaje
+							</button>
+						</form>
+						<div class="contact-data">
+							<div class="contact-data-one">
+								<div class="phone">
+									<div class="icon-phone"></div>
+									<div class="phone-text">
+										Teléfono: 4432080809
+									</div>
+								</div>
+								<div class="mail">
+									<div class="icon-mail"></div>
+									<div class="mail-text">
+										Correo: info@nuevoconcepto.mx
+									</div>
+								</div>
+							</div>
+							<div class="contact-data-two">
+								<a href="#" class="icon-facebook"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 
 <?php get_footer(); ?>

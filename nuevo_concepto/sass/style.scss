@@ -31,6 +31,9 @@ $black_op: rgba(0,0,0,.8);
 	align-items: center;
 	margin-top: 100px;
 	margin-bottom: 80px;
+	&.contact{
+		margin-bottom: 50px;
+	}
 	.horizontal-line{
 		height: 6px;
 		max-width: 290px;
@@ -354,6 +357,61 @@ body{
 	}
 }
 
+/* Galería */
+
+.ninja-slider-container{
+	display: none;
+}
+
+.gallery-image{
+	position: relative;
+	margin-bottom: 30px;
+	cursor: pointer;
+	overflow: hidden;
+	img{
+		max-width: 100%;
+		height: auto;
+	}
+	&:hover{
+		.hover-gallery-image{
+			top: 0;
+			transition: all 0.2s ease-in;
+		}
+	}
+	.hover-gallery-image{
+		transition: all 0.2s ease-in;
+		position: absolute;
+		left: 0;
+		top: -100%;
+		background-color: $purple_op;
+		color: $white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		width: 100%;
+		font-size: $f24;
+		line-height: 1.2;
+		text-transform: uppercase;
+		padding: 20px;
+		text-align: center;
+		&:after{
+			content: "";
+			position: absolute;
+			box-shadow: inset 0px 0px 0px 5px $white;
+			height: 90%;
+		    width: 90%;
+		    left: 5%;
+		    top: 5%;
+		}
+	}
+	@media (max-width: 767px){
+		max-width: 262px;
+		max-height: 200px;
+		margin: 20px auto;
+	}
+}
+
 /* Paquetes */
 
 .main-image-packages{
@@ -657,6 +715,138 @@ body{
 }
 
 
+/* Contact */
+
+.contact-container{
+	background-image: url("../img/background-contact.jpg");
+	height: auto;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+}
+
+.contact-form{
+	background-color: $black_op;
+	padding: 0 85px;
+	margin-bottom: 50px;
+	overflow: hidden;
+	.input-container{
+		margin-top: 40px;
+		label{
+			font-weight: 400;
+			font-size: $f24;
+			color: $white;
+			text-transform: uppercase;
+			display: block;
+		}
+		input{
+			height: 38px;
+		}
+		input,textarea{
+			background-color: transparent;
+			border: 2px solid $white;
+			width: 100%;
+		}
+	}
+	button{
+		max-width: 390px;
+		width: 100%;
+		display: block;
+		color: $white;
+		text-transform: uppercase;
+		height: 68px;
+		background-color: $brown;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		margin: 40px auto;
+		font-size: 24px;
+	}
+	@media (max-width: 767px){
+		padding: 0 20px;
+		.input-container{
+			margin-top: 15px;
+			label{
+				font-size: $f18;
+			}
+		}
+		button{
+			font-size: $f20;
+		}
+	}
+}
+
+.contact-data{
+	display: flex;
+	&-one{
+		flex: 1 0 0px;
+		.phone{
+			margin-bottom: 25px;
+			color: $white;
+			display: flex;
+			align-items: center;
+			font-size: $f20;
+			.icon-phone{
+				@include sprite($phone);
+			}
+			.phone-text{
+				margin-left: 20px;
+			}
+		}
+		.mail{
+			margin-bottom: 40px;
+			color: $white;
+			display: flex;
+			align-items: center;
+			font-size: $f20;
+			.icon-mail{
+				@include sprite($mail);
+			}
+			.mail-text{
+				margin-left: 20px;
+			}
+		}
+	}
+	&-two{
+		flex: 1 0 0px;
+		display: flex;
+		justify-content: center;
+		.icon-facebook{
+			display: block;
+			@include sprite($facebook);
+		}
+	}
+	@media (max-width: 767px){
+		flex-direction: column;
+		&-one{
+			.phone,.mail{
+				flex-direction: column;
+			}
+		}
+		&-two{
+			flex-direction: column;
+			flex: 1 1 auto;
+			align-items: center;
+			margin-bottom: 40px;
+		}
+	}
+}
+
+/* Footer */
+
+.footer{
+	height: 80px;
+	color: $white;
+	font-size: $f18;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	p{
+		margin: 0;
+	}
+}
 
 
 

@@ -85,6 +85,9 @@ function nuevoconcepto_header_scripts()
         wp_register_script('slick', get_template_directory_uri() . '/js/lib/slick.min.js', array('jquery'), '1.0.0'); // Slick
         wp_enqueue_script('slick'); // Enqueue it!
 
+        wp_register_script('ninja-slider', get_template_directory_uri() . '/js/lib/ninja-slider.js', array('jquery'), '1.0.0'); // Ninja Slider
+        wp_enqueue_script('ninja-slider'); // Enqueue it!
+
         wp_register_script('nuevoconceptocripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('nuevoconceptocripts'); // Enqueue it!
     }
@@ -107,6 +110,9 @@ function nuevoconcepto_styles()
     
     wp_register_style('bootstrap','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', '3.7.7', 'all');
     wp_enqueue_style('bootstrap'); // Enqueue it!
+
+    wp_register_style('ninja-slider', get_template_directory_uri() . '/stylesheets/ninja-slider.css', array(), '1.0', 'all');
+    wp_enqueue_style('ninja-slider'); // Enqueue it!
 
     wp_register_style('css', get_template_directory_uri() . '/stylesheets/style.css', array(), '1.0', 'all');
     wp_enqueue_style('css'); // Enqueue it!
