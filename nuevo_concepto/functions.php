@@ -82,6 +82,9 @@ function nuevoconcepto_header_scripts()
         wp_register_script('jquery', 'https://code.jquery.com/jquery-2.2.4.min.js', array(), '2.2.4'); // Modernizr
         wp_enqueue_script('jquery'); // Enqueue it!
 
+        wp_register_script( 'additional-validation', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js', array(), '1.0.0', true );
+        wp_enqueue_script('additional-validation');
+
         wp_register_script('slick', get_template_directory_uri() . '/js/lib/slick.min.js', array('jquery'), '1.0.0'); // Slick
         wp_enqueue_script('slick'); // Enqueue it!
 

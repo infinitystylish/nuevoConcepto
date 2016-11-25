@@ -59,6 +59,18 @@
     max-width: 1024px;
 }
 
+@media only screen and (max-width:1199px){
+    #ninja-slider.fullscreen .slider-inner {
+        max-width: 767px;
+    }
+}
+
+@media only screen and (max-width:991px){
+    #ninja-slider.fullscreen .slider-inner {
+        width: 80%;
+    }
+}
+
 #ninja-slider ul {
     position:relative;
     list-style:none;
@@ -66,7 +78,7 @@
     box-sizing:border-box;
 
     overflow:visible!important; /*For showing captions outside the slider when transitionType is "fade". */
-    margin-bottom:100px!important;
+    /*margin-bottom:100px!important;*/
 }
 
 #ninja-slider li {
@@ -138,8 +150,10 @@
     width:42px;
     height:56px;
     line-height:56px;
-    top: 40%; /* not 50% as caption at bottom should be counted.*/
-    margin-top:-28px;
+    top: 0; /* not 50% as caption at bottom should be counted.*/
+    bottom: 0;
+    margin: auto;
+    /*margin-top:-28px;*/
     background-color:rgba(0,0,0,0.4);
     background-color:#ccc\9;/*IE8 hack*/
     backface-visibility:hidden;
@@ -168,6 +182,16 @@
 }
 #ninja-slider-next {
     right: -42px;
+}
+
+@media only screen and (max-width:600px){
+    #ninja-slider-prev {
+        left: 0px; 
+    }
+    #ninja-slider-next {
+        right: 0px;
+    }
+    
 }
 
 /* arrows */

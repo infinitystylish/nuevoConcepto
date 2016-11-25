@@ -65,37 +65,37 @@
 							<!-- nav -->
 							<nav class="nav hidden-xs hidden-sm" role="navigation">
 								<ul class="menu-desktop">
-									<li>
+									<!-- <li>
 										<a href="#">
 											Inicio
 										</a>
-									</li>
-									<li>
+									</li> -->
+									<li data-section="gallery">
 										<a href="#">
 											Galeria
 										</a>
 									</li>
-									<li>
+									<li data-section="videos">
 										<a href="#">
 											Video
 										</a>
 									</li>
-									<li>
+									<li data-section="packages">
 										<a href="#">
 											Paquetes
 										</a>
 									</li>
-									<li>
+									<li data-section="members">
 										<a href="#">
 											Integrantes
 										</a>
 									</li>
-									<li>
+									<li data-section="repertory">
 										<a href="#">
 											Repertorio
 										</a>
 									</li>
-									<li>
+									<li data-section="contact">
 										<a href="#">
 											Contacto
 										</a>
@@ -112,37 +112,37 @@
 							<nav class="nav-mobile hidden-md hidden-lg" role="navigation">
 
 								<ul class="menu-mobile">
-									<li>
+									<!-- <li>
 										<a href="#">
 											Inicio
 										</a>
-									</li>
-									<li>
+									</li> -->
+									<li data-section="gallery">
 										<a href="#">
 											Galeria
 										</a>
 									</li>
-									<li>
+									<li data-section="videos">
 										<a href="#">
 											Video
 										</a>
 									</li>
-									<li>
+									<li data-section="packages">
 										<a href="#">
 											Paquetes
 										</a>
 									</li>
-									<li>
+									<li data-section="members">
 										<a href="#">
 											Integrantes
 										</a>
 									</li>
-									<li>
+									<li data-section="repertory">
 										<a href="#">
 											Repertorio
 										</a>
 									</li>
-									<li>
+									<li data-section="contact">
 										<a href="#">
 											Contacto
 										</a>

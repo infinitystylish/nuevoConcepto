@@ -128,7 +128,7 @@
 		</div>
 	</section>
 
-	<section class="video">
+	<section class="video videos">
 		<div class="title-section">
 			<div class="horizontal-line"></div>
 			<h3>Video</h3>
@@ -385,21 +385,21 @@
 								<div class="col-sm-6">
 									<div class="input-container">
 										<label for="name">Nombre</label>
-										<input type="text" />
+										<input name="name" type="text" />
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="input-container">
 										<label for="name">Email</label>
-										<input type="mail" />
+										<input name="email" type="mail" />
 									</div>
 								</div>
 							</div>
 							<div class="input-container">
 								<label for="name">Mensaje</label>
-								<textarea name="" id="" cols="30" rows="10"></textarea>
+								<textarea name="message" id="" cols="30" rows="10"></textarea>
 							</div>
-							<button>
+							<button type="submit">
 								Mandar mensaje
 							</button>
 						</form>

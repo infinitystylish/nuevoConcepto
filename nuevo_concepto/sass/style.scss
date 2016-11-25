@@ -739,6 +739,11 @@ body{
 			color: $white;
 			text-transform: uppercase;
 			display: block;
+			&.error{
+				margin-top: 10px;
+				color: #EB3F4E;
+				font-size: $f14;
+			}
 		}
 		input{
 			height: 38px;
