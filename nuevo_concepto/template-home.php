@@ -282,10 +282,77 @@
 			<div class="horizontal-line"></div>
 			<h3>Integrantes</h3>
 			<h4>Nuestro grupo de talentos</h4>
-		</div>
+		</div>	
+
 		<div class="members-container">
 			<div class="members-container-slider">
-				<div class="member-container">
+				
+
+				 <?php
+				    $mypost = array( 'post_type' => 'Integrantes', );
+				    $loop = new WP_Query( $mypost );
+				    ?>
+				    <?php while ( $loop->have_posts() ) : $loop->the_post();?>
+						
+						<?php  $rol_integrante =  get_post_meta( get_the_ID(), 'rol_integrante', true ); ?>
+						<?php  $estudio_integrante =  get_post_meta( get_the_ID(), 'estudio_integrante', true ); ?>
+						<?php  $experiencia_integrante =  get_post_meta( get_the_ID(), 'experiencia_integrante', true ); ?>
+
+		    			<div class="member-container">
+							<div class="member">
+								<div class="presentation-member">
+									<h4><?php the_title(); ?></h4>
+									<?php if( $rol_integrante != "" ) { ?>
+										<div class="ocupation">
+											<?php echo esc_html( $rol_integrante ); ?>
+										</div>
+									<?php } ?>
+
+									<?php if( $estudio_integrante != "" ) { ?>
+									<div class="studies">
+										<?php echo esc_html( $estudio_integrante ); ?>
+									</div>
+									<?php } ?>
+									
+									<?php if( $experiencia_integrante != "" ) { ?>
+									<div class="experience">
+										<?php echo esc_html( get_post_meta( get_the_ID(), 'experiencia_integrante', true ) ); ?>
+									</div>
+									<?php } ?>
+								</div>
+								<?php the_post_thumbnail('members_size'); ?>
+							</div>
+						</div>
+		           
+
+				    <?php endwhile; ?>
+
+				<?php wp_reset_query(); ?>
+
+				<!-- <div class="member-container">
+					<div class="member">
+						<div class="presentation-member">
+							<h4>
+								<div>
+									Adam Levine
+								</div>
+							</h4>
+							<div class="ocupation">
+								Cantante
+							</div>
+							<div class="studies">
+								Conservatorio de las rosas
+							</div>
+							<div class="experience">
+								11 años de experiencia
+							</div>
+						</div>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/adam_levine.jpg" alt="">
+					</div>
+				</div> -->
+
+
+				<!-- <div class="member-container">
 					<div class="member">
 						<div class="presentation-member">
 							<h4>Adam Levine</h4>
@@ -335,24 +402,8 @@
 						</div>
 						<img src="<?php echo get_template_directory_uri(); ?>/img/adam_levine.jpg" alt="">
 					</div>
-				</div>
-				<div class="member-container">
-					<div class="member">
-						<div class="presentation-member">
-							<h4>Adam Levine</h4>
-							<div class="ocupation">
-								Cantante
-							</div>
-							<div class="studies">
-								Conservatorio de las rosas
-							</div>
-							<div class="experience">
-								11 años de experiencia
-							</div>
-						</div>
-						<img src="<?php echo get_template_directory_uri(); ?>/img/adam_levine.jpg" alt="">
-					</div>
-				</div>
+				</div> -->
+				
 			</div>
 		</div>	
 	</section>
