@@ -124,7 +124,12 @@
 		</div>	
 		<div class="video-play-container">
 			<div class="video-play">
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/i8q8fFs3kTM" frameborder="0" allowfullscreen></iframe>
+				<?php 
+					$id=44; 
+					$post = get_post($id); 
+					$content = apply_filters('the_content', $post->post_content); 
+					echo $content;  
+					?>
 			</div>
 		</div>
 	</section>
