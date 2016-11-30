@@ -1,19 +1,25 @@
 <?php /* Template Name: Home */ get_header(); ?>
-
+	
+  	<?php if (has_post_thumbnail( $post->ID ) ){ ?>
+	  	<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full'); ?>
+		<section class="main-image" style="background-image: url('<?php echo $image[0]; ?>')" />
+	<?php }else{ ?>
 	<section class="main-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/nuevo-concepto.jpg')" />
+	<?php } ?>
+		
 		<div class="rectangle-text-parent">
 			<div class="rectangle-text one">
-				<h1>Nuevo Concepto</h1>
+				<h1><?php echo get_post_meta( get_the_ID(), 'titulo' , true ); ?></h1>
 			</div>
 		</div>
 		<div class="rectangle-text-parent">
 			<div class="rectangle-text two">
-				<h2>Grupo con prestigio</h2>
+				<h2><?php echo get_post_meta( get_the_ID(), 'texto_principal' , true ); ?></h2>
 			</div>
 		</div>
 		<div class="rectangle-text-parent right">
 			<div class="rectangle-text three">
-				<h3>Garantía de éxito en su evento</h3>
+				<h3><?php echo get_post_meta( get_the_ID(), 'texto_secundario' , true ); ?></h3>
 			</div>
 		</div>
 	</section>
@@ -22,55 +28,28 @@
         <div id="ninja-slider">
             <div class="slider-inner">
                 <ul>
-                    <li>
-                        <a class="ns-img" href="<?php echo get_template_directory_uri(); ?>/img/NC1.jpg"></a>
-                        <div class="caption">
-                            <h3>Dummy Caption 1</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus accumsan purus.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="ns-img" href="<?php echo get_template_directory_uri(); ?>/img/NC36_1.jpg"></a>
-                        <div class="caption">
-                            <h3>Dummy Caption 2</h3>
-                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="/"><img class="ns-img" src="<?php echo get_template_directory_uri(); ?>/img/NC48_1.jpg" /></a>
-                        <div class="caption">
-                            <h3>Dummy Caption 3</h3>
-                            <p>Duis fringilla arcu convallis urna commodo, et tempus velit posuere.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="ns-img" href="<?php echo get_template_directory_uri(); ?>/img/NC51_1.jpg""></a>
-                        <div class="caption">
-                            <h3>Dummy Caption 4</h3>
-                            <p>Proin non dui at metus suscipit bibendum.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="ns-img" href="<?php echo get_template_directory_uri(); ?>/img/NC105.jpg""></a>
-                        <div class="caption">
-                            <h3>Dummy Caption 5</h3>
-                            <p>Proin non dui at metus suscipit bibendum.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="ns-img" href="<?php echo get_template_directory_uri(); ?>/img/NC112.jpg""></a>
-                        <div class="caption">
-                            <h3>Dummy Caption 6</h3>
-                            <p>Proin non dui at metus suscipit bibendum.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="ns-img" href="<?php echo get_template_directory_uri(); ?>/img/NC122.jpg""></a>
-                        <div class="caption">
-                            <h3>Dummy Caption 7</h3>
-                            <p>Proin non dui at metus suscipit bibendum.</p>
-                        </div>
-                    </li>
+
+					<?php 
+						$galeria = get_post_meta( get_the_ID(), '_galeriaPost' , true );
+						if(!empty($galeria )){
+							foreach ($galeria as $key => $value) {
+								if( !empty($value['id_image']) ) {
+									$idImage = $value['id_image'];
+								}
+								?>
+								
+				                    <li>
+				                        <a class="ns-img" href="<?php echo wp_get_attachment_url( $idImage ); ?> "></a>
+				                        <div class="caption">
+				                            <h3><?php echo $value['title']; ?></h3>
+				                            <p><?php echo $value['description']; ?></p>
+				                        </div>
+				                    </li>
+
+								<?php 
+							}
+						}
+					 ?>
                 </ul>
                 <div id="fsBtn" class="fs-icon" title="Expand/Close"></div>
             </div>
@@ -87,42 +66,51 @@
 		<div class="gallery-section-container">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-4 col-sm-push-1">
-						<div class="gallery-image">
-							<div class="hover-gallery-image" onclick="lightbox(0)">
-								Mostrar galería
-							</div>
-							<img src="<?php echo get_template_directory_uri(); ?>/img/gallery1.jpg" width="360" height="430" alt="">
-						</div>
-					</div>
-					<div class="col-sm-3 col-sm-push-1">
-						<div class="gallery-image">
-							<div class="hover-gallery-image" onclick="lightbox(1)">
-								Mostrar galería
-							</div>
-							<img src="<?php echo get_template_directory_uri(); ?>/img/gallery2.jpg" width="262" height="200" alt="">
-						</div>
-						<div class="gallery-image">
-							<div class="hover-gallery-image" onclick="lightbox(2)">
-								Mostrar galería
-							</div>
-							<img src="<?php echo get_template_directory_uri(); ?>/img/gallery2.jpg" width="262" height="200" alt="">
-						</div>
-					</div>
-					<div class="col-sm-3 col-sm-push-1">
-						<div class="gallery-image">
-							<div class="hover-gallery-image" onclick="lightbox(3)">
-								Mostrar galería
-							</div>
-							<img src="<?php echo get_template_directory_uri(); ?>/img/gallery2.jpg" width="262" height="200" alt="">
-						</div>
-						<div class="gallery-image">
-							<div class="hover-gallery-image" onclick="lightbox(4)">
-								Mostrar galería
-							</div>
-							<img src="<?php echo get_template_directory_uri(); ?>/img/gallery2.jpg" width="262" height="200" alt="">
-						</div>
-					</div>
+
+				 	<?php
+  
+					 	
+
+					 	if(!empty($galeria )){
+					 		$gallery_count = 0;
+							foreach ($galeria as $key => $value) {
+								if( !empty($value['id_image']) ) {
+									$idImage = $value['id_image'];
+						        } 
+						        if($gallery_count > 4){ 
+						        	break;
+						        }
+
+						        if($gallery_count == 0){ ?>
+						        	<div class="col-sm-4 col-sm-push-1">
+										<div class="gallery-image">
+											<div class="hover-gallery-image" onclick="lightbox(<?php echo $gallery_count; ?>)">
+												Mostrar galería
+											</div>
+											<?php echo wp_get_attachment_image( $idImage, "gallery_size_1", true ); ?>
+										</div>
+									</div>
+								<?php
+						        }elseif($gallery_count >= 1){ ?>
+
+						        	<div class="col-sm-3 col-sm-push-1">
+										<div class="gallery-image">
+											<div class="hover-gallery-image" onclick="lightbox(<?php echo $gallery_count; ?>)">
+												Mostrar galería
+											</div>
+											<?php echo wp_get_attachment_image( $idImage, "gallery_size_2", true ); ?>
+										</div>
+									</div>
+								<?php
+						        }
+							    
+								$gallery_count++;
+							}
+
+						}
+							
+
+					?>
 				</div>
 			</div>
 		</div>
@@ -149,104 +137,28 @@
 		</div>
 		<div class="main-image-packages" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/background-packages.jpg')">
 			<div class="package-slider">
-				<div class="rhombus-parent">
-					<div class="rhombus">
-						<div class="package-content">
-							<h5>Espectacular</h5>
-							<ul>
-								<li>
-									9 músicos totalmente en vivo: dos voces femeninas, una voz masculina, batería, bajo, tecladista, guitarrista, percusionista y saxofonista.
-								</li>
-								<li>
-									Iluminación tipo beam, spot y wash.
-								</li>
-								<li>
-									Paneles de leds manejados por computadora.
-								</li>
-								<li>
-									Ingeniero de audio con sistema de alta fidelidad HK.
-								</li>
-								<li>
-									Caracterizaciónes de acuerdo al estilo musical tanto para el grupo como para los invitados.
-								</li>
-								<li>
-									Diversos souvenirs como: pelucas, antifaces, boas, sombreros de figuras, máscaras de personajes, políticas, caricaturas.
-								</li>
-								<li>
-									Trajes de timbiriche y diferentes caracterizaciones.
-								</li>
-								<li>
-									Interacción con el público.
-								</li>
-								<li>
-									Descarga de confeti y otros efectos.
-								</li>
-								<li>
-									Show de botargas.
-								</li>
-								<li>
-									Una hora de música ambiental grabada, dirección del programa y vals con maestro de ceremonias.
-								</li>
-								<li>
-									Show de saxofón.
-								</li>
-								<li>
-									Pantallas gigantes de 3 X 2 metros.
-								</li>
-							</ul>
-							<div class="icon-music"></div>
-						</div>
-					</div>
-				</div>
-				<div class="rhombus-parent">
-					<div class="rhombus">
-						<div class="package-content">
-							<h5>Básico</h5>
-							<ul>
-								<li>
-									9 músicos totalmente en vivo: dos voces femeninas, una voz masculina, batería, bajo, tecladista, guitarrista, percusionista y saxofonista.
-								</li>
-								<li>
-									Iluminación tipo beam, spot y wash.
-								</li>
-								<li>
-									Paneles de leds manejados por computadora.
-								</li>
-								<li>
-									Ingeniero de audio con sistema de alta fidelidad HK.
-								</li>
-								<li>
-									Caracterizaciónes de acuerdo al estilo musical tanto para el grupo como para los invitados.
-								</li>
-								<li>
-									Diversos souvenirs como: pelucas, antifaces, boas, sombreros de figuras, máscaras de personajes, políticas, caricaturas.
-								</li>
-								<li>
-									Trajes de timbiriche y diferentes caracterizaciones.
-								</li>
-								<li>
-									Interacción con el público.
-								</li>
-								<li>
-									Descarga de confeti y otros efectos.
-								</li>
-								<li>
-									Show de botargas.
-								</li>
-								<li>
-									Una hora de música ambiental grabada, dirección del programa y vals con maestro de ceremonias.
-								</li>
-								<li>
-									Show de saxofón.
-								</li>
-								<li>
-									Pantallas gigantes de 3 X 2 metros.
-								</li>
-							</ul>
-							<div class="icon-music"></div>
-						</div>
-					</div>
-				</div>
+
+							 <?php
+							    $mypost = array( 'post_type' => 'Paquetes', );
+							    $loop = new WP_Query( $mypost );
+							    ?>
+							    <?php while ( $loop->have_posts() ) : $loop->the_post();?>
+									
+									<div class="rhombus-parent">
+										<div class="rhombus">
+											<div class="package-content">
+												<div>
+													<h5><?php the_title(); ?></h5>
+													<?php the_content(); ?>
+												</div>
+					           					<div class="icon-music"></div>
+											</div>
+										</div>
+									</div>
+
+							    <?php endwhile; ?>
+
+							<?php wp_reset_query(); ?>
 			</div>
 		</div>
 	</section>
@@ -328,82 +240,6 @@
 				    <?php endwhile; ?>
 
 				<?php wp_reset_query(); ?>
-
-				<!-- <div class="member-container">
-					<div class="member">
-						<div class="presentation-member">
-							<h4>
-								<div>
-									Adam Levine
-								</div>
-							</h4>
-							<div class="ocupation">
-								Cantante
-							</div>
-							<div class="studies">
-								Conservatorio de las rosas
-							</div>
-							<div class="experience">
-								11 años de experiencia
-							</div>
-						</div>
-						<img src="<?php echo get_template_directory_uri(); ?>/img/adam_levine.jpg" alt="">
-					</div>
-				</div> -->
-
-
-				<!-- <div class="member-container">
-					<div class="member">
-						<div class="presentation-member">
-							<h4>Adam Levine</h4>
-							<div class="ocupation">
-								Cantante
-							</div>
-							<div class="studies">
-								Conservatorio de las rosas
-							</div>
-							<div class="experience">
-								11 años de experiencia
-							</div>
-						</div>
-						<img src="<?php echo get_template_directory_uri(); ?>/img/adam_levine.jpg" alt="">
-					</div>
-				</div>
-				<div class="member-container">
-					<div class="member">
-						<div class="presentation-member">
-							<h4>Adam Levine</h4>
-							<div class="ocupation">
-								Cantante
-							</div>
-							<div class="studies">
-								Conservatorio de las rosas
-							</div>
-							<div class="experience">
-								11 años de experiencia
-							</div>
-						</div>
-						<img src="<?php echo get_template_directory_uri(); ?>/img/adam_levine.jpg" alt="">
-					</div>
-				</div>
-				<div class="member-container">
-					<div class="member">
-						<div class="presentation-member">
-							<h4>Adam Levine</h4>
-							<div class="ocupation">
-								Cantante
-							</div>
-							<div class="studies">
-								Conservatorio de las rosas
-							</div>
-							<div class="experience">
-								11 años de experiencia
-							</div>
-						</div>
-						<img src="<?php echo get_template_directory_uri(); ?>/img/adam_levine.jpg" alt="">
-					</div>
-				</div> -->
-				
 			</div>
 		</div>	
 	</section>

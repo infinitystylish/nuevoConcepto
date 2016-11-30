@@ -138,6 +138,10 @@
     box-sizing:border-box;    
 }
 
+#ninja-slider .caption h3,#ninja-slider .caption p {
+    text-shadow: 2px 2px 0px rgba(0,0,0,.8);
+}
+
 
 /* ---------Arrow buttons ------- */   
 /* The arrow button id should be: slider id + ("-prev", "-next", and "-pause-play") */ 

@@ -34,6 +34,9 @@ if (function_exists('add_theme_support'))
 
     add_image_size('members_size', 360, 352,true);
 
+    add_image_size('gallery_size_1', 360, 430, true);
+    add_image_size('gallery_size_2', 262, 200, true);
+
     // Enables post and comment RSS feed links to head
     add_theme_support('automatic-feed-links');
 
@@ -285,7 +288,7 @@ function Integrantes() {
         'description'           => 'Integrantes del grupo nuevo concepto',
         'labels'                => $labels,
         'supports'              => array('title','thumbnail'),
-        'taxonomies'            => array( 'category', 'post_tag' ),
+        'taxonomies'            => array(''),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
@@ -305,6 +308,62 @@ function Integrantes() {
 }
 
 add_action( 'init', 'Integrantes', 0 );
+
+function Paquetes() {
+
+    $labels = array(
+        'name'                  => 'paquetes',
+        'singular_name'         => 'paquete',
+        'menu_name'             => 'paquetes',
+        'name_admin_bar'        => 'paquetes',
+        'archives'              => 'paquetes',
+        'parent_item_colon'     => 'paquetes',
+        'all_items'             => 'Todos los paquetes',
+        'add_new_item'          => 'Nuevo paquete',
+        'add_new'               => 'Agregar nuevo',
+        'new_item'              => 'Nuevo paquete',
+        'edit_item'             => 'Editar paquete',
+        'update_item'           => 'Actualizar paquete',
+        'view_item'             => 'Ver paquete',
+        'search_items'          => 'Buscar paquete',
+        'not_found'             => 'No encontrado',
+        'not_found_in_trash'    => 'No encontrado en papelera',
+        'featured_image'        => 'Imagen destacada',
+        'set_featured_image'    => 'Poner imagen descatada',
+        'remove_featured_image' => 'Quitar imagen destacada',
+        'use_featured_image'    => 'Usar como imagen destacada',
+        'insert_into_item'      => 'Insertar en paquetes',
+        'uploaded_to_this_item' => 'Subir en este paquete',
+        'items_list'            => 'Lista de paquetes',
+        'items_list_navigation' => 'Menu de lista de paquetes',
+        'filter_items_list'     => 'Filtrar lista de paquetes',
+    );
+    $args = array(
+        'label'                 => 'Integrante',
+        'description'           => 'Integrantes del grupo nuevo concepto',
+        'labels'                => $labels,
+        'supports'              => array('title','editor','thumbnail'),
+        'taxonomies'            => array(),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-archive',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,        
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+    );
+    register_post_type( 'paquetes', $args );
+
+}
+
+add_action( 'init', 'Paquetes', 1 );
+
 
 
 function nc_register_meta_fields() {
@@ -429,6 +488,186 @@ function nc_custom_fields_auth_callback( $allowed, $meta_key, $post_id, $user_id
   return $allowed;
 
 }
+
+
+function loadAdminScripts() {
+    wp_enqueue_style( 'css-admin', get_template_directory_uri() . '/inc/admin/css/admin.css');
+    wp_enqueue_script( 'script-add-images', get_template_directory_uri() . '/inc/admin/js/add-image.js', array('jquery'), '1.0.0', true );
+    wp_enqueue_script( 'script-admin', get_template_directory_uri() . '/inc/admin/js/admin.js', array('jquery'), '1.0.0', true );
+    
+    $data['ajax_url'] = admin_url('admin-ajax.php' );
+    wp_localize_script( 'script-admin', 'variables', $data );
+}
+
+add_action( 'admin_enqueue_scripts', 'loadAdminScripts' );
+
+
+function metaBoxImagenPrincipal( $post, $metabox )
+{
+
+    $imagenPrincipal =  get_post_meta( $post->ID , '_imagenPrincipalPost' , true );
+
+    ?>
+    <div class="input-area">
+         <label class="label" for="titulo"><?php _e( 'Titulo', 'nc_textdomain' ); ?></label>
+         <input  name="titulo" id="titulo" type="text" value="<?php echo esc_attr( get_post_meta( $post->ID, 'titulo', true ) ); ?>">
+    </div>
+
+    <div class="input-area">
+         <label class="label" for="texto_principal"><?php _e( 'Texto principal', 'nc_textdomain' ); ?></label>
+         <input  name="texto_principal" id="texto_principal" type="text" value="<?php echo esc_attr( get_post_meta( $post->ID, 'texto_principal', true ) ); ?>">
+    </div>
+
+    <div class="input-area">
+         <label class="label" for="texto_secundario"><?php _e( 'Texto secundario', 'nc_textdomain' ); ?></label>
+         <input  name="texto_secundario" id="texto_secundario" type="text" value="<?php echo esc_attr( get_post_meta( $post->ID, 'texto_secundario', true ) ); ?>">
+    </div>
+    <?php
+
+}
+
+function metaBoxGaleria( $post, $metabox )
+{
+
+    $galeria =  get_post_meta( $post->ID , '_galeriaPost' , true );
+?>
+    <div class="modal-mask dom-galeria">
+        <div class="modal-container">
+
+            <div class="modal-header">
+                <h3>Nueva imagen</h3>
+            </div>
+
+            <div class="modal-body">
+                <label class="form-label image-galeria-modal">
+                    <button class="modal-image add_image_galeria" >Agregar Imagen</button>
+                    <input type="hidden" class="modal-id-image" />
+                    <input type="hidden" class="modal-url-image" />
+                </label>
+                <label class="form-label">
+                    Titulo
+                    <input class="form-control modal-title" />
+                </label>
+                <label class="form-label">
+                    Descripción
+                    <textarea rows="5" class="form-control modal-description"></textarea>
+                </label>
+                
+            </div>
+
+            <div class="modal-footer text-right galeria-modal">
+                <button class="modal-default-button cancelar-galeria">
+                    Cancelar
+                </button>
+                <button class="modal-default-button save-galeria">
+                    Guardar
+                </button>
+
+            </div>
+        </div>
+    </div>
+  
+    
+    <div id="galeria" class="container form-wrap">
+        <button id="show-modal" class="button-primary add-new-galeria" >Agregar Imagen</button>
+
+        <div class="galerias dom-galeria">
+            <?php 
+                $total_imagenes = 0;
+                if(!empty($galeria)) {
+                    foreach ($galeria as $key => $value): 
+            ?>
+                        <div class="galeria" data-id="<?php echo $key; ?>">
+                            <div class="div-image">
+                    
+                                <?php 
+                                        if( !empty($value['id_image']) ) {
+                                            $idImage = $value['id_image'];
+                                            echo wp_get_attachment_image( $idImage, 'thumbnail', true, array('class' => 'image-add') );
+                                        } 
+                                 ?>
+                                <button class="add_image_galeria" >Agregar Imagen</button>
+                                <input type="hidden" class="id_image_galeria" name="_galeriaPost[<?php echo $key ?>][id_image]" value="<?php echo $value['id_image']; ?>">
+                            </div>
+                            <div class="div-title">
+                                <label>Titulo</label>
+                                <input name="_galeriaPost[<?php echo $key ?>][title]" class="custom-translate" size="40" type="text" value="<?php echo $value['title']; ?>" />
+                            </div>
+                            <div class="div-description">
+                                <label>Descripción</label>
+                                <textarea name="_galeriaPost[<?php echo $key ?>][description]" class="custom-translate"><?php echo $value['description']; ?></textarea>
+                            </div>
+                            <div class="div-buttons">
+                                <button class="button-secondary delete-galeria" data-id="<?php echo $key; ?>"> Eliminar </button>
+                            </div>  
+                        </div>
+            <?php 
+                    $total_imagenes = $key + 1 ;
+                    endforeach;
+                }
+            ?>
+        </div>
+        <input type="hidden" class="total_imagenes" name ="total_imagenes" value="<?php echo $total_imagenes; ?>">
+    </div>
+    
+<?php
+}
+
+/**
+ * [registerMetaBoxes Registra los meta boxes de la página]
+ * @return [type] [description]
+ */
+function registerMetaBoxes() 
+{   
+    global $post;
+    if ( '5' == $post->ID ) {
+        add_meta_box( 'imagen_principal_nc', 'Imagen Principal', 'metaBoxImagenPrincipal', 'page' , 'normal', 'high' );
+        add_meta_box( 'galeria_nc', 'Galeria', 'metaBoxGaleria', 'page' , 'normal', 'high' );
+    }
+}
+
+add_action( 'add_meta_boxes', 'registerMetaBoxes' );
+
+
+/**
+ * [savePostMeta Guarda los valores de los metas que se creen en la pagina]
+ * @param  [type] $post_id [Id del post current]
+ * @return [type]          [description]
+ */
+function savePostMeta($post_id)
+{
+
+    /* META PARA LAS IMAGENES DE LA GALERIA */
+    if ( isset($_POST['_galeriaPost']) || isset($_POST['total_imagenes']) ) {
+        if (isset($_POST['_galeriaPost'])) {
+            update_post_meta( $post_id, '_galeriaPost', $_POST['_galeriaPost'] );
+        } else {
+            update_post_meta( $post_id, '_galeriaPost', '' );
+        }
+    }
+
+    if( isset( $_POST['titulo'] ) && $_POST['titulo'] != "" ) {
+        update_post_meta( $post_id, 'titulo', $_POST['titulo'] );
+    } else {
+        delete_post_meta( $post_id, 'titulo' );
+    }
+    
+    if( isset( $_POST['texto_principal'] ) && $_POST['texto_principal'] != "" ) {
+        update_post_meta( $post_id, 'texto_principal', $_POST['texto_principal'] );
+    } else {
+
+        delete_post_meta( $post_id, 'texto_principal' );
+    }
+
+    if( isset( $_POST['texto_secundario'] ) && $_POST['texto_secundario'] != "" ) {
+        update_post_meta( $post_id, 'texto_secundario', $_POST['texto_secundario'] );
+    } else {
+        delete_post_meta( $post_id, 'texto_secundario' );
+    }
+}
+
+add_action( 'save_post', 'savePostMeta' );
+
 
 
 

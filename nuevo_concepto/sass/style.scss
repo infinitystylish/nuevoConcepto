@@ -453,12 +453,21 @@ body{
 .package-content{
 	transform: rotate(-45deg);
 	max-width: 440px;
+	//position: relative;
 	position: absolute;
     left: 5%;
     top: 30px;
     right: 0;
     bottom: 0;
     margin: auto;
+    >div{
+    	display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	    height: 85%;
+    }
+    
 	h5{
 		font-size: 36px;
 		color: $white;
@@ -487,19 +496,24 @@ body{
 	.icon-music{
 		@include sprite($music);
 		margin: 40px auto;
+		// position: relative;
+		// top: 40px;
 	}
 
 	@media (max-width: 991px){
 	 	transform: rotate(0deg);
+	 	left: 0;
+    	top: 0;
 		.icon-music{
 	 	    margin: 15px auto 0;
+	 		// position: relative;
+			// top: 15px;
 	 	}
 	}
 	@media (max-width: 767px){
 		padding: 30px 50px;
 		position: relative;
-		left: 0;
-    	top: 0;
+		
 	}
 	 @media (max-width: 640px){
 	 	h5{
