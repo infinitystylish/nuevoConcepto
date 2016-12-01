@@ -177,18 +177,20 @@
 				</h3>
 			</div>
 			<div class="musical-equipment-slider-container">
-				<div>
-					<img src="<?php echo get_template_directory_uri(); ?>/img/guitar.jpg"  width="292" height="262" alt="">
-				</div>
-				<div>
-					<img src="<?php echo get_template_directory_uri(); ?>/img/piano.jpg" width="292" height="262"  alt="">
-				</div>
-				<div>
-					<img src="<?php echo get_template_directory_uri(); ?>/img/battery.jpg" width="292" height="262"  alt="">
-				</div>
-				<div>
-					<img src="<?php echo get_template_directory_uri(); ?>/img/piano.jpg" width="292" height="262"  alt="">
-				</div>
+
+			 <?php
+				    $mypost = array( 'post_type' => 'EquipoMusical', );
+				    $loop = new WP_Query( $mypost );
+				    ?>
+				    <?php while ( $loop->have_posts() ) : $loop->the_post();?>
+						
+					<div>
+						<?php the_post_thumbnail('musical_equipment'); ?>
+					</div>
+				    <?php endwhile; ?>
+
+				<?php wp_reset_query(); ?>
+
 			</div>
 		</div>
 
@@ -255,7 +257,7 @@
 			<h3>Repertorio</h3>
 			<h4>Nuestras interpretaciones</h4>
 		</div>
-		<a href="#" class="button-repertory">
+		<a href="<?php echo get_post_meta( get_the_ID(), 'repertorio' , true ); ?>" target="_blank" class="button-repertory">
 			<div class="icon-repertory"></div>
 			<div class="name-repertory">
 				Ver repertorio

@@ -57,9 +57,6 @@ if ( $('#galeria').length > 0 ) {
 
         var cont = $('.total_imagenes').val();
         $('.galeria-modal').on('click', '.save-galeria', function(event) {
-    // qtranslate-fields[testimonioPost][1][description][es]
-    // qtranslate-fields[testimonioPost][1][description][en]
-    // qtranslate-fields[testimonioPost][1][description][qtranslate-separator]
             event.preventDefault();
             description = $('.modal-description').val();
             author = $('.modal-title').val();

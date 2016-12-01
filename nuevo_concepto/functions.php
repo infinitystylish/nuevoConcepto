@@ -37,6 +37,8 @@ if (function_exists('add_theme_support'))
     add_image_size('gallery_size_1', 360, 430, true);
     add_image_size('gallery_size_2', 262, 200, true);
 
+     add_image_size('musical_equiment', 292, 262, true);
+
     // Enables post and comment RSS feed links to head
     add_theme_support('automatic-feed-links');
 
@@ -232,15 +234,6 @@ function nuevoconceptoblankgravatar ($avatar_defaults)
     return $avatar_defaults;
 }
 
-// Threaded Comments
-function enable_threaded_comments()
-{
-    if (!is_admin()) {
-        if (is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-            wp_enqueue_script('comment-reply');
-        }
-    }
-}
 
 add_action('admin_head', 'my_custom_admin_style');
 
@@ -365,6 +358,61 @@ function Paquetes() {
 add_action( 'init', 'Paquetes', 1 );
 
 
+function EquipoMusical() {
+
+    $labels = array(
+        'name'                  => 'Equipo musical',
+        'singular_name'         => 'Equipo musical',
+        'menu_name'             => 'Equipo musical',
+        'name_admin_bar'        => 'Equipo musical',
+        'archives'              => 'Equipo musical',
+        'parent_item_colon'     => 'Equipo musical',
+        'all_items'             => 'Todos los equipos musicales',
+        'add_new_item'          => 'Nuevo equipo musical',
+        'add_new'               => 'Agregar nuevo',
+        'new_item'              => 'Nuevo equipo musical',
+        'edit_item'             => 'Editar equipo musical',
+        'update_item'           => 'Actualizar equipo musical',
+        'view_item'             => 'Ver equipo musical',
+        'search_items'          => 'Buscar equipo musical',
+        'not_found'             => 'No encontrado',
+        'not_found_in_trash'    => 'No encontrado en papelera',
+        'featured_image'        => 'Imagen destacada',
+        'set_featured_image'    => 'Poner imagen descatada',
+        'remove_featured_image' => 'Quitar imagen destacada',
+        'use_featured_image'    => 'Usar como imagen destacada',
+        'insert_into_item'      => 'Insertar en equipo musical',
+        'uploaded_to_this_item' => 'Subir en este equipo musical',
+        'items_list'            => 'Lista de equipo musical',
+        'items_list_navigation' => 'Menu de lista de equipo musical',
+        'filter_items_list'     => 'Filtrar lista de equipo musical',
+    );
+    $args = array(
+        'label'                 => 'EquipoMusical',
+        'description'           => 'Integrantes del grupo nuevo concepto',
+        'labels'                => $labels,
+        'supports'              => array('title','thumbnail'),
+        'taxonomies'            => array(),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 6,
+        'menu_icon'             => 'dashicons-format-audio',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,        
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+    );
+    register_post_type( 'EquipoMusical', $args );
+
+}
+
+add_action( 'init', 'EquipoMusical', 1 );
+
 
 function nc_register_meta_fields() {
 
@@ -398,6 +446,16 @@ function nc_register_meta_fields() {
                    ]
       );
 
+      register_meta( 'Repertorio',
+                   'repertorio',
+                   [
+                     'description'      => _x( 'Repertorio', 'meta description', 'nc-textdomain' ),
+                     'single'           => true,
+                     'sanitize_callback' => 'sanitize_text_field',
+                     'auth_callback'     => 'nc_custom_fields_auth_callback'
+                   ]
+      );
+
 }
 
 add_action( 'init', 'nc_register_meta_fields' );
@@ -405,6 +463,11 @@ add_action( 'init', 'nc_register_meta_fields' );
 
 function nc_meta_boxes() {
     add_meta_box( 'datos-integrante', __( 'Datos del integrante', 'nc_textdomain' ), 'nc_meta_box_callback', 'Integrantes' );
+
+    global $post;
+    if ( '5' == $post->ID ) {
+        add_meta_box( 'repertorio', __( 'Repertorio', 'nc_textdomain' ), 'nc_meta_box_repertorio_callback', 'page' );
+    }
 }
 
 function nc_meta_box_callback($post) {
@@ -442,6 +505,25 @@ function nc_meta_box_callback($post) {
     
 }
 
+function nc_meta_box_repertorio_callback($post) {
+
+     // El nonce es opcional pero recomendable. Vea http://codex.wordpress.org/Function_Reference/wp_nonce_field
+     wp_nonce_field( 'nc_meta_box', 'nc_meta_box_noncename' );
+    
+     // Obtenermos los meta data actuales para rellenar los custom fields
+     // en caso de que ya tenga valores
+     $post_meta = get_post_custom( $post->ID );
+
+     // El input text para el nombre
+     ?>
+     <div class="input-area">
+         <label class="label" for="repertorio"><?php _e( 'Repertorio', 'nc_textdomain' ); ?></label>
+         <input  name="repertorio" id="repertorio" type="text" value="<?php echo esc_attr( get_post_meta( $post->ID, 'repertorio', true ) ); ?>">
+     </div>
+    <?php 
+    
+}
+
 function nc_save_custom_fields( $post_id, $post ){
     
     // Primero, comprobamos el nonce como medida de seguridad
@@ -468,6 +550,12 @@ function nc_save_custom_fields( $post_id, $post ){
         update_post_meta( $post_id, 'experiencia_integrante', $_POST['experiencia_integrante'] );
     } else {
         delete_post_meta( $post_id, 'experiencia_integrante' );
+    }
+
+    if( isset( $_POST['repertorio'] ) && $_POST['repertorio'] != "" ) {
+        update_post_meta( $post_id, 'repertorio', $_POST['repertorio'] );
+    } else {
+        delete_post_meta( $post_id, 'repertorio' );
     }
 }
 
@@ -668,8 +756,11 @@ function savePostMeta($post_id)
 
 add_action( 'save_post', 'savePostMeta' );
 
-
-
+function my_admin_bar_render() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('comments');
+}
+add_action( 'wp_before_admin_bar_render', 'my_admin_bar_render' );
 
 /*------------------------------------*\
 	Actions + Filters + ShortCodes
@@ -678,7 +769,6 @@ add_action( 'save_post', 'savePostMeta' );
 // Add Actions
 add_action('init', 'nuevoconcepto_header_scripts'); // Add Custom Scripts to wp_head
 add_action('wp_print_scripts', 'nuevoconcepto_conditional_scripts'); // Add Conditional Page Scripts
-add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'nuevoconcepto_styles'); // Add Theme Stylesheet
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 
