@@ -168,7 +168,7 @@ body{
 	}
 	.nav-mobile{
 		flex: 0;
-		position: absolute;
+		position: fixed;
 		z-index: 3;
 		height: 100%;
 		max-width: 220px;
@@ -774,7 +774,7 @@ body{
 		position: relative;
 		div.wpcf7-validation-errors{
 			border: 2px solid #EB3F4E;
-		    position: absolute;
+		    position: relative;
 		    bottom: -5px;
 		    color: $white;
 		}
@@ -821,9 +821,7 @@ body{
 		text-transform: uppercase;
 		height: 68px;
 		background-color: $brown;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		line-height: 1;
 		border: none;
 		margin: 40px auto;
 		font-size: 24px;
@@ -836,7 +834,7 @@ body{
 				font-size: $f18;
 			}
 		}
-		button{
+		button,input[type="submit"]{
 			font-size: $f20;
 		}
 	}
@@ -887,6 +885,9 @@ body{
 		&-one{
 			.phone,.mail{
 				flex-direction: column;
+				.phone-text,.mail-text{
+					margin-top: 10px;
+				}
 			}
 		}
 		&-two{
@@ -894,6 +895,17 @@ body{
 			flex: 1 1 auto;
 			align-items: center;
 			margin-bottom: 40px;
+		}
+	}
+	@media (max-width: 480px){
+		&-one{
+			.phone,.mail{
+				font-size: 16px;
+				.phone-text,.mail-text{
+					margin-left: 0px;
+				}
+			}
+
 		}
 	}
 }
