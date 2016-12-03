@@ -85,7 +85,8 @@
 						        	<div class="col-sm-4 col-sm-push-1">
 										<div class="gallery-image">
 											<div class="hover-gallery-image" onclick="lightbox(<?php echo $gallery_count; ?>)">
-												Mostrar galería
+												<p>Mostrar galería</p>
+												
 											</div>
 											<?php echo wp_get_attachment_image( $idImage, "gallery_size_1", true ); ?>
 										</div>
@@ -96,7 +97,7 @@
 						        	<div class="col-sm-3 col-sm-push-1">
 										<div class="gallery-image">
 											<div class="hover-gallery-image" onclick="lightbox(<?php echo $gallery_count; ?>)">
-												Mostrar galería
+												<p>Mostrar galería</p>
 											</div>
 											<?php echo wp_get_attachment_image( $idImage, "gallery_size_2", true ); ?>
 										</div>
@@ -153,8 +154,10 @@
 										<div class="rhombus">
 											<div class="package-content">
 												<div>
-													<h5><?php the_title(); ?></h5>
-													<?php the_content(); ?>
+													<div>
+														<h5><?php the_title(); ?></h5>
+														<?php the_content(); ?>
+													</div>
 												</div>
 					           					<div class="icon-music"></div>
 											</div>
@@ -276,28 +279,6 @@
 					<div class="contact-form">
 						
 							<?php the_content(); ?>
-							<!-- <div class="row">
-
-								<div class="col-sm-6">
-									<div class="input-container">
-										<label for="name">Nombre</label>
-										<input name="name" type="text" />
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div class="input-container">
-										<label for="name">Email</label>
-										<input name="email" type="mail" />
-									</div>
-								</div>
-							</div>
-							<div class="input-container">
-								<label for="name">Mensaje</label>
-								<textarea name="message" id="" cols="30" rows="10"></textarea>
-							</div>
-							<button type="submit">
-								Mandar mensaje
-							</button> -->
 						
 						<div class="contact-data">
 							<div class="contact-data-one">
