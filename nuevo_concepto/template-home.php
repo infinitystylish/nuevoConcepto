@@ -274,8 +274,10 @@
 			<div class="container">
 				<div class="col-sm-12 col-sm-push-0 col-md-10 col-md-push-1">
 					<div class="contact-form">
-						<form action="#">
-							<div class="row">
+						
+							<?php the_content(); ?>
+							<!-- <div class="row">
+
 								<div class="col-sm-6">
 									<div class="input-container">
 										<label for="name">Nombre</label>
@@ -295,25 +297,25 @@
 							</div>
 							<button type="submit">
 								Mandar mensaje
-							</button>
-						</form>
+							</button> -->
+						
 						<div class="contact-data">
 							<div class="contact-data-one">
 								<div class="phone">
 									<div class="icon-phone"></div>
 									<div class="phone-text">
-										Teléfono: 4432080809
+										Teléfono: <?php echo get_post_meta( get_the_ID(), 'telefono' , true ); ?>
 									</div>
 								</div>
 								<div class="mail">
 									<div class="icon-mail"></div>
 									<div class="mail-text">
-										Correo: info@nuevoconcepto.mx
+										Correo: <?php echo get_post_meta( get_the_ID(), 'correo' , true ); ?>
 									</div>
 								</div>
 							</div>
 							<div class="contact-data-two">
-								<a href="#" class="icon-facebook"></a>
+								<a href="<?php echo get_post_meta( get_the_ID(), 'facebook' , true ); ?>" target="_blank" class="icon-facebook"></a>
 							</div>
 						</div>
 					</div>

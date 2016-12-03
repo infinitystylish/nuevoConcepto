@@ -16,7 +16,7 @@ i.mce-i-icon {
 
 .add_image_galeria {
     display: block !important;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 .image-galeria {
     text-align: center;
@@ -106,7 +106,7 @@ img.form-control-img{
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
-    line-height: 1.42857143;
+    line-height: 1.2;
     color: #555;
     background-color: #fff;
     background-image: none;
@@ -120,7 +120,7 @@ img.form-control-img{
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 .galeria textarea{
-    height: 100px;
+    height: 45px;
 }
 .galeria .div-buttons {
     text-align: right;

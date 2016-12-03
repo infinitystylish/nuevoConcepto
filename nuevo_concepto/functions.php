@@ -456,6 +456,38 @@ function nc_register_meta_fields() {
                    ]
       );
 
+    register_meta( 'datos-contacto',
+                   'Telefono',
+                   [
+                     'description'      => _x( 'Teléfono', 'meta description', 'nc-textdomain' ),
+                     'single'           => true,
+                     'sanitize_callback' => 'sanitize_text_field',
+                     'auth_callback'     => 'nc_custom_fields_auth_callback'
+                   ]
+    );
+
+    register_meta( 'datos-contacto',
+                   'Correo',
+                   [
+                     'description'      => _x( 'Correo', 'meta description', 'nc-textdomain' ),
+                     'single'           => true,
+                     'sanitize_callback' => 'sanitize_text_field',
+                     'auth_callback'     => 'nc_custom_fields_auth_callback'
+                   ]
+    );
+
+    register_meta( 'datos-contacto',
+                   'Facebook',
+                   [
+                     'description'      => _x( 'Facebook', 'meta description', 'nc-textdomain' ),
+                     'single'           => true,
+                     'sanitize_callback' => 'sanitize_text_field',
+                     'auth_callback'     => 'nc_custom_fields_auth_callback'
+                   ]
+    );
+
+
+
 }
 
 add_action( 'init', 'nc_register_meta_fields' );
@@ -467,6 +499,7 @@ function nc_meta_boxes() {
     global $post;
     if ( '5' == $post->ID ) {
         add_meta_box( 'repertorio', __( 'Repertorio', 'nc_textdomain' ), 'nc_meta_box_repertorio_callback', 'page' );
+        add_meta_box( 'datos-contacto', __( 'Datos contacto', 'nc_textdomain' ), 'nc_meta_box_datos_contacto_callback', 'page' );
     }
 }
 
@@ -524,6 +557,41 @@ function nc_meta_box_repertorio_callback($post) {
     
 }
 
+function nc_meta_box_datos_contacto_callback($post) {
+
+     // El nonce es opcional pero recomendable. Vea http://codex.wordpress.org/Function_Reference/wp_nonce_field
+     wp_nonce_field( 'nc_meta_box', 'nc_meta_box_noncename' );
+    
+     // Obtenermos los meta data actuales para rellenar los custom fields
+     // en caso de que ya tenga valores
+     $post_meta = get_post_custom( $post->ID );
+
+     // El input text para el nombre
+     ?>
+     <div class="input-area">
+         <label class="label" for="telefono"><?php _e( 'Teléfono', 'nc_textdomain' ); ?></label>
+         <input  name="telefono" id="telefono" type="number" value="<?php echo esc_attr( get_post_meta( $post->ID, 'telefono', true ) ); ?>">
+     </div>
+    <?php 
+
+    // El input text para el nombre
+     ?>
+     <div class="input-area">
+         <label class="label" for="correo"><?php _e( 'Correo', 'nc_textdomain' ); ?></label>
+         <input  name="correo" id="correo" type="mail" value="<?php echo esc_attr( get_post_meta( $post->ID, 'correo', true ) ); ?>">
+     </div>
+    <?php 
+
+    // El input text para el nombre
+     ?>
+     <div class="input-area">
+         <label class="label" for="facebook"><?php _e( 'Facebook', 'nc_textdomain' ); ?></label>
+         <input  name="facebook" id="facebook" type="text" value="<?php echo esc_attr( get_post_meta( $post->ID, 'facebook', true ) ); ?>">
+     </div>
+    <?php 
+    
+}
+
 function nc_save_custom_fields( $post_id, $post ){
     
     // Primero, comprobamos el nonce como medida de seguridad
@@ -556,6 +624,24 @@ function nc_save_custom_fields( $post_id, $post ){
         update_post_meta( $post_id, 'repertorio', $_POST['repertorio'] );
     } else {
         delete_post_meta( $post_id, 'repertorio' );
+    }
+
+    if( isset( $_POST['telefono'] ) && $_POST['telefono'] != "" ) {
+        update_post_meta( $post_id, 'telefono', $_POST['telefono'] );
+    } else {
+        delete_post_meta( $post_id, 'telefono' );
+    }
+
+    if( isset( $_POST['correo'] ) && $_POST['correo'] != "" ) {
+        update_post_meta( $post_id, 'correo', $_POST['correo'] );
+    } else {
+        delete_post_meta( $post_id, 'correo' );
+    }
+
+    if( isset( $_POST['facebook'] ) && $_POST['facebook'] != "" ) {
+        update_post_meta( $post_id, 'facebook', $_POST['facebook'] );
+    } else {
+        delete_post_meta( $post_id, 'facebook' );
     }
 }
 

@@ -3,7 +3,7 @@
 
 				<!-- copyright -->
 				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?> 2016.
+					&copy; Copyright <?php bloginfo('name'); ?> <?php echo date('Y'); ?> .
 				</p>
 				<!-- /copyright -->
 

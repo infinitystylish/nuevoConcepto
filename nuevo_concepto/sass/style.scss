@@ -760,6 +760,20 @@ body{
 	padding: 0 85px;
 	margin-bottom: 50px;
 	overflow: hidden;
+	form{
+		position: relative;
+		div.wpcf7-validation-errors{
+			border: 2px solid #EB3F4E;
+		    position: absolute;
+		    bottom: -5px;
+		    color: $white;
+		}
+		div.wpcf7-mail-sent-ok{
+			position: absolute;
+		    bottom: -5px;
+			color: $white;
+		}
+	}
 	.input-container{
 		margin-top: 40px;
 		label{
@@ -781,9 +795,15 @@ body{
 			background-color: transparent;
 			border: 2px solid $white;
 			width: 100%;
+			color: $white;
+			padding: 0 10px;
+		}
+		textarea{
+			padding-top: 10px;
+			padding-bottom: 10px;
 		}
 	}
-	button{
+	button,input[type="submit"]{
 		max-width: 390px;
 		width: 100%;
 		display: block;
